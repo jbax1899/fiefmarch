@@ -150,6 +150,6 @@ Losing a keep does not remove units already on the board. If the House is over c
 
 Recruiting costs one action and the listed resources. Each keep may recruit once per round.
 
-A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, and workers with friendly military. Enemy units always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment fails if there is no legal tile or capacity.
+A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, and workers with friendly military. Enemy units always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment is unavailable without enough resources, unit capacity, or a legal spawn tile. Invalid attempts spend no action or resources and do not use that keep's recruitment for the round. The game must prevent invalid recruitment choices.
 
 New military units can defend immediately but **cannot move, attack, or pilfer until the next round**, including those recruited by Edicts. New workers may move immediately but cannot build until the next round.
