@@ -16,7 +16,7 @@ A cooldown of 2 means an Edict used in round 4 is available again in round 6. Co
 ## Restrictions
 
 - Muster uses that keep's recruitment for the round. Both units need legal spawn tiles and free unit capacity.
-- Border Levy follows normal recruitment placement: inside the fort first, then an orthogonally adjacent passable tile. An enemy military unit adjacent to the fort blocks it. The new infantry is inactive until next round.
+- Border Levy follows normal recruitment placement: inside the fort first, then an orthogonally adjacent passable tile. The new infantry is inactive until next round.
 - Entrench cannot stack with cover from a fort, keep, or another Edict.
 - Royal Survey ends the worker's activity for the round.
 - Rally cannot restore a unit above 3 HP.
