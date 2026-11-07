@@ -25,10 +25,10 @@ Starting positions are fixed. A player is eliminated when their last keep is des
 
 Each player gets **three actions per round**. Players take one action at a time in a fixed order chosen at match start. Team turns alternate between teams where possible.
 
-An action can move a unit, attack, recruit, build, rest, pilfer a camp, or issue an Edict. Passing gives up the player's remaining actions. Unused actions do not carry over.
+An action can move a unit, attack, recruit, build, pilfer a camp, or issue an Edict. Passing gives up the player's remaining actions. Unused actions do not carry over.
 
 - A unit may move multiple times before taking another activity.
-- Attacking, resting, and pilfering end a military unit's activity for the round.
+- Attacking and pilfering end a military unit's activity for the round.
 - Building ends a worker's activity for the round.
 - A military unit attacks at most once per round; a worker builds at most once.
 - All units become available again at the start of the next round.
@@ -71,7 +71,7 @@ For melee attacks, move into the enemy's tile to attack. Movement and the attack
 
 Attacking ends the unit's activity. There is no retaliation or random damage. Units at 0 HP are removed immediately.
 
-A military unit can spend an action to recover 1 HP, up to 3, if no enemy military unit is adjacent. Resting ends its activity.
+Units do not heal on their own. Rally can restore military units' HP.
 
 ### Cover
 
@@ -150,4 +150,4 @@ Recruiting costs one action and the listed resources. Each keep may recruit once
 
 A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, and workers with friendly military. Enemy units always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment fails if there is no legal tile or capacity.
 
-New military units can defend immediately but **cannot move, attack, rest, or pilfer until the next round**, including those recruited by Edicts. New workers may move immediately but cannot build until the next round.
+New military units can defend immediately but **cannot move, attack, or pilfer until the next round**, including those recruited by Edicts. New workers may move immediately but cannot build until the next round.
