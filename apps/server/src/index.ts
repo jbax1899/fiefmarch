@@ -1,7 +1,7 @@
 import { createServer } from "./server";
 
-async function main(): Promise<void> {
-  const { server, connections } = createServer();
+function main(): void {
+  const { server, stop } = createServer();
   let shutdownPromise: Promise<void> | undefined;
 
   console.info(`Fiefmarch server listening at ${server.url}`);
@@ -13,30 +13,9 @@ async function main(): Promise<void> {
 
     console.info(`Received ${signal}; closing connections`);
 
-    shutdownPromise = (async () => {
-      for (const socket of connections.values()) {
-        socket.close(1001, "Server is shutting down");
-      }
-
-      let forceStopTimer: ReturnType<typeof setTimeout> | undefined;
-
-      try {
-        await Promise.race([
-          server.stop(),
-          new Promise<void>((resolve) => {
-            forceStopTimer = setTimeout(() => {
-              void server.stop(true).then(resolve);
-            }, 5_000);
-          }),
-        ]);
-      } finally {
-        if (forceStopTimer) {
-          clearTimeout(forceStopTimer);
-        }
-      }
-
+    shutdownPromise = stop().then(() => {
       console.info("Fiefmarch server stopped");
-    })();
+    });
 
     return shutdownPromise;
   };
@@ -46,5 +25,5 @@ async function main(): Promise<void> {
 }
 
 if (import.meta.main) {
-  void main();
+  main();
 }

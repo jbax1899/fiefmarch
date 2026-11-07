@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: pnpm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      pnpm-routine:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions-routine:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch

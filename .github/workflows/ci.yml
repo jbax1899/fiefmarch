@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -13,17 +14,17 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
         with:
           version: 10.26.2
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: pnpm
-      - uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version: 1.4.4
       - run: pnpm install --frozen-lockfile
@@ -41,3 +42,60 @@ jobs:
         run: pnpm smoke:server
       - if: always()
         run: docker rm --force fiefmarch-server
+
+  deploy:
+    name: Deploy to Fly.io
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: checks
+    runs-on: ubuntu-latest
+    concurrency:
+      group: fiefmarch-fly-deploy
+      cancel-in-progress: false
+    environment:
+      name: production
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Skip stale main revisions
+        id: freshness
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest_main_sha="$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq .sha)"
+          if [[ "$GITHUB_SHA" == "$latest_main_sha" ]]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping stale revision $GITHUB_SHA; main is at $latest_main_sha."
+          fi
+      - name: Require the app-scoped Fly token
+        if: steps.freshness.outputs.deploy == 'true'
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: |
+          if [[ -z "$FLY_API_TOKEN" ]]; then
+            echo "::error::Set the production environment secret FLY_API_TOKEN to an app-scoped Fly deploy token."
+            exit 1
+          fi
+      - uses: superfly/flyctl-actions/setup-flyctl@ed8efb33836e8b2096c7fd3ba1c8afe303ebbff1 # 1.6
+        if: steps.freshness.outputs.deploy == 'true'
+        with:
+          version: "0.4.123"
+      - name: Deploy backend
+        if: steps.freshness.outputs.deploy == 'true'
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl deploy --remote-only --ha=false --yes
+      - name: Verify public health endpoint
+        if: steps.freshness.outputs.deploy == 'true'
+        run: |
+          for attempt in {1..12}; do
+            health="$(curl --fail --silent --show-error --max-time 10 https://fiefmarch.fly.dev/healthz)" && [[ "$health" == '{"status":"ok"}' ]] && exit 0
+            sleep 5
+          done
+          echo "::error::Fly health endpoint did not become healthy after deployment."
+          exit 1

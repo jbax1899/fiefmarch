@@ -34,15 +34,13 @@ In another terminal, run `pnpm smoke:server` to check the container.
 
 ## Fly.io
 
-The root `fly.toml` configures the backend for `ord`, one shared CPU, 256 MB memory, HTTPS, and an HTTP health check. Authenticate with Fly, create the app once under the personal organization, then deploy the backend image:
+`fly.toml` configures `fiefmarch` in `ord` with one shared CPU, 256 MB memory, HTTPS, and an HTTP health check. GitHub Actions deploys after CI passes on `main`; pull requests never deploy. For a manual redeploy, run the `CI` workflow from `main` in the Actions tab.
 
 ```sh
-fly auth login
-fly apps create fiefmarch --org personal
-fly deploy --remote-only --ha=false
+fly tokens create deploy --app fiefmarch --expiry 8760h --name github-actions-fiefmarch
 ```
 
-The backend health endpoint is `https://fiefmarch.fly.dev/healthz`. The Phaser client is not part of this deployment.
+Save the command output as `FLY_API_TOKEN` in the GitHub `production` environment, which is restricted to `main`. Keep the app-scoped token in environment secrets; do not commit it. The health endpoint is `https://fiefmarch.fly.dev/healthz`. The Phaser client is not deployed.
 
 ## Licensing
 
