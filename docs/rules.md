@@ -57,7 +57,7 @@ A unit already on a road can travel two consecutive connected road tiles for 1 m
 | Spearman      |        2 | Strong against cavalry        |
 | Archer        |        2 | Ranged attacks                |
 | Cavalry       |        3 | Fast; strong against archers  |
-| Battering ram |        1 | Attacks fortified positions   |
+| Battering ram |        2 | Attacks fortified positions   |
 | Worker        |        2 | Builds; cannot attack         |
 
 Military units have **3 HP**. Normal attacks deal 1 damage, with these exceptions:
