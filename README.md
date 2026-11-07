@@ -2,6 +2,10 @@
 
 Fiefmarch is a browser-based strategy game in early development. For now, this repository contains a blank Phaser client and a small Bun/Hono backend.
 
+## Game design
+
+The [design notes](docs/game-design.md) explain what we're aiming for, and the [working rules](docs/rules.md) record our current decisions and trial values. Both are drafts; several mechanics are deliberately unresolved.
+
 ## Development
 
 You'll need Node.js 22.12 or newer, pnpm 10.26.2, and Bun 1.4.4.
