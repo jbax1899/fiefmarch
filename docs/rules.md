@@ -19,7 +19,7 @@ Each player starts with:
 - One infantry on the diagonally inward tile beside the keep.
 - 2 Food, 2 Wood, 0 Stone, and 0 Gold.
 
-Starting positions are fixed. A player is eliminated when their last keep is destroyed and occupied by an enemy. The last surviving player or team wins. Players may surrender. There is no round limit. All remaining players must agree to a draw.
+Starting positions are fixed. A player is eliminated when their last keep is destroyed and occupied by an enemy. Remove all their remaining units and buildings; they take no more turns. The last surviving player or team wins. Players may surrender. There is no round limit. All remaining players must agree to a draw.
 
 ## Rounds and actions
 
@@ -65,7 +65,7 @@ Military units have **3 HP**. Normal attacks deal 1 damage, with these exception
 - Spearmen deal 2 damage to cavalry.
 - Cavalry deal 2 damage to archers.
 - Rams deal 2 damage to fortified units and keep structures. They cannot attack unfortified units.
-- Archers attack units one or two tiles away along a row or column. Units and mountains block line of sight. Archers cannot attack keep structures.
+- Archers attack enemy military units one or two tiles away along a row or column. Units and mountains block line of sight. Archers cannot attack workers or keep structures.
 
 For melee attacks, move into the enemy's tile to attack. Movement and the attack cost one action. If the enemy survives, the attacker stays on the last legal tile. If the enemy dies, the attacker enters its tile, unless an intact keep blocks entry. A unit already adjacent may attack without moving. Archers attack from their current tile without moving.
 
@@ -74,6 +74,8 @@ Attacking ends the unit's activity. There is no retaliation or random damage. Un
 A military unit can spend an action to recover 1 HP, up to 3, if no enemy military unit is adjacent. Resting ends its activity.
 
 ### Cover
+
+A military unit on its own fort or keep is fortified, even after its cover is used. Entrench does not count as fortification.
 
 A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the first point of damage. Unused cover disappears when the unit leaves. Cover does not regenerate automatically, and returning to the same building in the same round does not renew it. Cover cannot stack.
 
