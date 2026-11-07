@@ -2,7 +2,7 @@
 
 _Working draft — the direction for Fiefmarch, not a finished specification._
 
-Fiefmarch is a turn-based medieval strategy game about positioning a small army, developing territory, and deciding what ground is worth holding. It draws broad inspiration from *Feudal*, *Catan*, and *Age of Empires II*, but isn't meant to recreate any of them.
+Fiefmarch is a turn-based medieval strategy game about positioning a small army, developing territory, and deciding what ground is worth holding. It draws broad inspiration from _Feudal_, _Catan_, and _Age of Empires II_, but isn't meant to recreate any of them.
 
 ## What should matter
 
