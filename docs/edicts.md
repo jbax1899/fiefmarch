@@ -19,6 +19,7 @@ A cooldown of 2 means an Edict used in round 4 is available again in round 6. Co
 - Border Levy follows normal recruitment placement: inside the fort first, then an orthogonally adjacent passable tile. The new infantry is inactive until next round.
 - Camps count as open ground for Entrench. Forts and keeps do not. Entrench cannot stack with another Edict.
 - Royal Survey ends the worker's activity for the round.
+- Rally's range counts horizontal and vertical steps, including turns. A unit one tile north and one tile east of a keep is within range.
 - Rally cannot restore a unit above 3 HP.
 - Edicts do not allow another attack, construction, or recruitment where one has already been used.
 
