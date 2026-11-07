@@ -1,25 +1,23 @@
 # Game design
 
-Fiefmarch is a turn-based medieval strategy game about raising an army, building up territory, and fighting over the map. _Feudal_, _Catan_, and _Age of Empires II_ are some of the influences.
+Fiefmarch is a short, turn-based medieval strategy game. Players build small domains, raise armies, and fight for control of the map.
 
-## Starting a match
+Each player has three actions per round. Moving an army, recruiting soldiers, building a camp, and issuing an Edict all draw from the same allowance. Players need to grow their economy while keeping enough troops in the field to protect it.
 
-Players secretly place their keep and starting army, then reveal their positions together. Where you settle affects what you can build and which resources are within reach. Gold could help with specialized units; forests and stone could make a good defensive position.
+## Matches
 
-Maps are generated from a seed, with terrain and resources mirrored to give each side similar opportunities. The layout changes between games, but neither player should start with an obvious advantage.
+Standard 1v1 games use a 12×12 board. Team games and four-player free-for-all use 16×16. The targets are 10–15 minutes for 1v1 and around 20 minutes for four players.
 
-## Playing the map
+Everyone starts with a keep, a worker, an infantry unit, and a few resources. There is no placement phase. The last player or team with a surviving keep wins.
 
-Turns should be quick. Each player gives a few orders, then play passes to the next person. Moving an entire army in one go would leave everyone else waiting too long.
+Maps are generated from seeds with exact rotational symmetry. Each player has reliable access to basic resources, while valuable positions nearer the center give players reasons to advance. Handcrafted maps can follow the same rules.
 
-Terrain and unit matchups matter, but the rules should stay simple enough that you can judge a fight without doing much arithmetic.
+## Building and fighting
 
-Farms, lumber camps, quarries, and mines give players reasons to spread out. They're valuable, but exposed. Keeps provide a little income of their own so losing a distant building doesn't end the game.
+Camps produce Food, Wood, Stone, and Gold. Gold pays for Edicts and additional keeps. Armies protect production, occupy enemy camps, and pilfer them for a small reward. An enemy cannot simply take over a working camp.
 
-## Player counts and tabletop play
+Keeps recruit soldiers and raise the owner's unit capacity. New soldiers can defend immediately but cannot move or attack until the next round. Fighting is deterministic, with short movement ranges and a few clear unit matchups.
 
-The plan is 2–4 players, including 1v1, 2v2, and four-player free-for-all. We'll start with 1v1 balance and work out the other formats from there.
+The game should work on desktop and mobile browsers, and remain manageable as a physical board game. Visually, it takes the form of a medieval tabletop diorama. Most of the setting is serious; House names and small details provide the humor.
 
-Fiefmarch should also work as a board game with pieces, resource cards, and a handful of markers. No routine troop upkeep or complicated recordkeeping.
-
-See [rules.md](rules.md) for the rules and numbers.
+See the [rules](rules.md), [map rules](maps.md), and [Edicts](edicts.md).
