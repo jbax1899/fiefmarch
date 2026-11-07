@@ -119,7 +119,7 @@ A unit that moved onto an undefended camp may pilfer later that round. A unit th
 | Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
 | Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
-Forts may be built on passable tiles without another building. They have no structural HP. An enemy entering a fort after defeating any defender destroys it.
+Forts may be built on passable tiles without another building. A new fort or keep must have at least one tile of space from opposing forts and keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. An enemy entering a fort after defeating any defender destroys it.
 
 Keeps have **2 structural HP**. A defending military unit must be defeated before attackers can damage the structure. Ordinary adjacent attacks deal 1 structural damage; rams deal 2. Archers cannot attack keep structures. Attacking the structure may include movement into range, but the attacker stays outside.
 
@@ -150,6 +150,6 @@ Losing a keep does not remove units already on the board. If the House is over c
 
 Recruiting costs one action and the listed resources. Each keep may recruit once per round.
 
-A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, and workers with friendly military. Enemy units always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment fails if there is no legal tile or capacity.
+A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, and workers with friendly military. Enemy units and buildings always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment fails if there is no legal tile or capacity.
 
 New military units can defend immediately but **cannot move, attack, or pilfer until the next round**, including those recruited by Edicts. New workers may move immediately but cannot build until the next round.
