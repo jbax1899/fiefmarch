@@ -34,7 +34,7 @@ Gold is placed outside home zones, toward the board center and opposing players.
 
 Distance means the shortest legal worker path to a usable camp tile without roads, using terrain movement costs. Farms and lumber camps use marked resource tiles; fish, Stone, and Gold require one orthogonally adjacent, passable camp tile.
 
-Only **one usable camp location per deposit** is required. Multiple possible locations are allowed but not required. A deposit can support one camp at a time, not one camp per adjacent tile.
+Every resource site must have a legal camp location. The map must allow all sites to be worked at once without camps sharing a tile. A deposit supports one camp, even if several tiles could serve it.
 
 The generator also requires:
 
