@@ -25,7 +25,7 @@ Starting positions are fixed. A player is eliminated when an enemy destroys and 
 
 Each player gets **three actions per round**. Players take one action at a time in a fixed order chosen at match start. Team turns alternate between teams where possible.
 
-An action can move a unit, attack, recruit, build, pilfer a camp, or issue an Edict. Passing gives up the player's remaining actions. Unused actions do not carry over.
+An action can move a unit, attack, recruit, build, demolish a camp, pilfer a camp, or issue an Edict. Passing gives up the player's remaining actions. Unused actions do not carry over.
 
 - A unit may move multiple times before taking another activity.
 - Attacking and pilfering end a military unit's activity for the round.
@@ -103,6 +103,8 @@ When building a camp, its owner chooses one eligible, unclaimed resource site. T
 | Mine    | Passable tile orthogonally beside a Gold deposit in mountains     | 1 Food, 1 Wood    |
 
 A worker must stand on the tile where it builds a camp, fort, or keep. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits cannot be walked on or built over.
+
+A player may spend one action to demolish any camp they own. They recover one resource used to build it, choosing which if the camp cost more than one. The site becomes unclaimed.
 
 ### Occupation and pilfering
 
