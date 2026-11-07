@@ -1,27 +1,25 @@
 # Game design
 
-_Working draft — the direction for Fiefmarch, not a finished specification._
+Fiefmarch is a turn-based medieval strategy game about commanding a small army, building a settlement, and fighting over territory. It takes some inspiration from _Feudal_, _Catan_, and _Age of Empires II_, but we're developing our own rules and identity.
 
-Fiefmarch is a turn-based medieval strategy game about positioning a small army, developing territory, and deciding what ground is worth holding. It draws broad inspiration from _Feudal_, _Catan_, and _Age of Empires II_, but isn't meant to recreate any of them.
+This document describes the kind of game we're aiming for. The [working rules](rules.md) cover the mechanics we've discussed so far.
 
-## What should matter
+## How a match should feel
 
-A match begins with secret placement of each player's keep and starting army. Choosing where to settle should matter: access to gold might favor specialized units, while forests and stone might favor building defenses.
+Players secretly choose where to place their starting keep and army. That first decision should shape their options. A position near gold might help recruit specialized units, while access to forests and stone could make it easier to build defenses.
 
-The map should feel different each game without handing one player a better starting position. Terrain and resources are generated from a seed and mirrored to give opponents comparable opportunities.
+Maps should change between matches without giving one side a clear advantage. We'll generate terrain and resources from a seed, then mirror the layout so opposing players have comparable starting opportunities.
 
-We want short, consequential turns. Players should make a few decisions at a time rather than move an entire army before anyone else can respond. Terrain, positioning, and unit matchups should matter more than stacking raw strength.
+Turns should be short enough to keep everyone involved. Rather than moving an entire army at once, players would make a few decisions before control passes to someone else. Terrain, positioning, and unit matchups should matter more than sheer numbers.
 
-Expansion should create both opportunities and risks. Farms, camps, quarries, and mines provide resources, but also give opponents targets beyond the army itself. A keep supplies enough baseline income that losing an outlying site doesn't make recovery impossible.
+Holding land needs to be worth the effort. Farms, lumber camps, quarries, and mines bring in resources, but they're also places an opponent can attack. Each keep provides some basic income, so losing an outlying site doesn't leave a player with no way to recover.
 
-## Players and format
+## Players and tabletop play
 
-The long-term target is 2–4 players: head-to-head, 2v2, and four-player free-for-all. We'll start by testing 1v1 rules. Three-player fairness and how larger matches should handle turn order still need work.
+We're aiming for 2–4 players, with 1v1, 2v2, and four-player free-for-all matches. We'll work out the basic rules in 1v1 first. Three-player balance and turn order for larger games still need attention.
 
-Fiefmarch should also be playable with physical pieces and resource cards. We should be skeptical of rules that demand constant arithmetic, hidden digital counters, or routine troop upkeep. Deterministic combat and small movement allowances help keep play understandable at the table.
+The same rules should also work on a physical table. Pieces, resource cards, and a few markers ought to be enough to track a match. That means avoiding constant calculations, routine troop upkeep, and mechanics that are practical only when a computer handles them.
 
-## What we haven't settled
+## Still to decide
 
-The game still needs a victory condition, a complete command structure, and a combat formula. Board size, starting armies, building costs, production rates, and the exact capture rules also need playtesting. We'll settle those deliberately rather than let the first implementation decide for us.
-
-The [working rules](rules.md) collect the mechanics and trial values discussed so far.
+We haven't chosen a victory condition or settled the command and combat rules. Board size, starting armies, building costs, resource yields, and capture timing also need testing. Those decisions belong in the rules discussion, not in assumptions made while writing the game code.

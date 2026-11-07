@@ -4,7 +4,7 @@ Fiefmarch is a browser-based strategy game in early development. For now, this r
 
 ## Game design
 
-The [design notes](docs/game-design.md) explain what we're aiming for, and the [working rules](docs/rules.md) record our current decisions and trial values. Both are drafts; several mechanics are deliberately unresolved.
+The [game design](docs/game-design.md) describes what we're aiming for. The [working rules](docs/rules.md) cover the mechanics we've discussed, including the decisions we still need to make.
 
 ## Development
 
