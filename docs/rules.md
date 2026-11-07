@@ -125,8 +125,6 @@ At 0 structural HP, a keep cannot recruit or produce Food. An enemy must enter i
 
 Players may build up to **three keeps per match**, including the starting keep. A new keep needs a passable tile without a building or road, at least four orthogonal grid steps from every existing keep. A destroyed keep cannot be replaced.
 
-A keep cannot recruit while enemy military is orthogonally adjacent to it.
-
 ## Unit capacity and recruitment
 
 Each surviving keep supports **five units total**, including **one worker**. Players may have at most three workers. Capacity is shared across the House; units are not tied to a particular keep.
