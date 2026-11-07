@@ -39,7 +39,7 @@ Income is collected at the start of each round, before anyone acts.
 
 Movement is orthogonal. Normal tiles cost 1 movement point to enter; forests cost 2. Mountains and water are impassable. Any unit can move one adjacent passable tile even if its cost exceeds its movement allowance.
 
-Friendly military units can pass through one another but cannot end on the same tile. Enemy military units block normal movement. Workers do not block friendly military movement or spawning. One worker and one friendly military unit may share a tile. Enemy military entering an unprotected worker's tile removes the worker.
+Friendly military units can pass through one another but cannot end on the same tile. Enemy military units block normal movement. Workers do not block friendly military movement or spawning. One worker and one friendly military unit may share a tile. An enemy must defeat the military unit before removing the worker. If a melee attacker defeats the military unit and enters its tile, the worker is removed too. If the attack does not enter the tile, the worker remains until an enemy enters it.
 
 Two friendly military units starting on orthogonally adjacent tiles may move together for one action. They must stay orthogonally adjacent throughout the move. Each uses its own movement allowance and follows normal movement rules. Neither can attack during that action.
 
