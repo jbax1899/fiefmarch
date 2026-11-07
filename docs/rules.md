@@ -104,7 +104,7 @@ When building a camp, its owner chooses one eligible, unclaimed resource site. T
 
 A worker must stand on the tile where it builds a camp, fort, or keep. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits cannot be walked on or built over.
 
-A player may spend one action to demolish any camp they own. They recover one resource used to build it, choosing which if the camp cost more than one. The site becomes unclaimed.
+A player may spend one action to demolish a camp they own, unless enemy military occupies it. They recover one resource used to build it, choosing which if the camp cost more than one. The site becomes unclaimed.
 
 ### Occupation and pilfering
 
