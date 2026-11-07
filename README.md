@@ -4,7 +4,10 @@ Fiefmarch is a browser-based medieval strategy game. The repository currently ha
 
 ## Game design
 
-Read the [game design](docs/game-design.md) for the overall direction and the [rules](docs/rules.md) for the mechanics.
+- [Game design](docs/game-design.md) — overall direction.
+- [Rules](docs/rules.md) — actions, units, combat, buildings, and recruitment.
+- [Maps](docs/maps.md) — terrain, symmetry, and resource guarantees.
+- [Edicts](docs/edicts.md) — Gold-funded special actions.
 
 ## Development
 
