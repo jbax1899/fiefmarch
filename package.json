@@ -1,5 +1,5 @@
 {
-  "name": "fiefmarch",
+  "name": "fiefmarch-workspace",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,23 +8,21 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
+    "dev:client": "pnpm --filter @fiefmarch/client dev",
+    "dev:server": "pnpm --filter @fiefmarch/server dev",
+    "build": "pnpm --filter @fiefmarch/client build && pnpm --filter @fiefmarch/server build",
+    "typecheck": "pnpm --filter @fiefmarch/client typecheck && pnpm --filter @fiefmarch/server typecheck",
+    "lint": "eslint apps",
+    "test": "pnpm --filter @fiefmarch/server test",
+    "smoke:server": "pnpm --filter @fiefmarch/server smoke",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
-  },
-  "dependencies": {
-    "phaser": "4.2.1"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "eslint": "10.14.0",
     "prettier": "3.9.10",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.72.1",
-    "vite": "8.3.6"
+    "typescript-eslint": "8.72.1"
   }
 }

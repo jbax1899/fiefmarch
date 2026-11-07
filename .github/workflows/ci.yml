@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
         with:
           version: 10.26.2
@@ -21,7 +23,21 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
       - run: pnpm install --frozen-lockfile
-      - run: pnpm typecheck
+      - run: pnpm format:check
       - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
       - run: pnpm build
+      - run: docker build -f apps/server/Dockerfile -t fiefmarch-server .
+      - run: docker run --detach --name fiefmarch-server --memory=256m --memory-swap=256m --publish 127.0.0.1:8080:8080 fiefmarch-server
+      - run: curl --fail --retry 10 --retry-connrefused --retry-delay 1 http://127.0.0.1:8080/healthz
+      - name: Smoke-test Docker WebSocket
+        env:
+          SMOKE_BASE_URL: http://127.0.0.1:8080
+        run: pnpm smoke:server
+      - if: always()
+        run: docker rm --force fiefmarch-server

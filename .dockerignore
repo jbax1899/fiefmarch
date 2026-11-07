@@ -1,0 +1,16 @@
+.git
+**/node_modules
+**/dist
+**/.env*
+apps/client/src
+apps/client/index.html
+apps/client/vite.config.ts
+apps/client/tsconfig.json
+.github
+.prettierignore
+.prettierrc.json
+README.md
+tsconfig.base.json
+apps/server/scripts
+apps/server/tests
+apps/server/tsconfig.json
