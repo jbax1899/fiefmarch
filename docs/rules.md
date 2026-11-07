@@ -41,7 +41,7 @@ Movement is orthogonal. Normal tiles cost 1 movement point to enter; forests cos
 
 Friendly military units can pass through one another but cannot end on the same tile. Enemy military units block normal movement. Workers do not block friendly military movement or spawning. One worker and one friendly military unit may share a tile. Enemy military entering an unprotected worker's tile removes the worker.
 
-Two friendly military units starting on orthogonally adjacent tiles may move together for one action. Each uses its own movement allowance and follows normal movement rules. Neither can attack during that action.
+Two friendly military units starting on orthogonally adjacent tiles may move together for one action. They must stay orthogonally adjacent throughout the move. Each uses its own movement allowance and follows normal movement rules. Neither can attack during that action.
 
 A worker and military unit starting together may move along the same path for one action. Each has its own movement allowance; the worker stops when its allowance runs out, and the soldier may continue. A worker cannot follow a unit into an enemy tile. If the soldier attacks, the worker remains on its last legal tile.
 
