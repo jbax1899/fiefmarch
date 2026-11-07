@@ -1,10 +1,10 @@
 # Fiefmarch
 
-Fiefmarch is a browser-based strategy game in early development. For now, this repository contains a blank Phaser client and a small Bun/Hono backend.
+Fiefmarch is a browser-based medieval strategy game. The repository currently has a blank Phaser client and a Bun/Hono server.
 
 ## Game design
 
-The [game design](docs/game-design.md) describes what we're aiming for. The [working rules](docs/rules.md) cover the mechanics we've discussed, including the decisions we still need to make.
+Read the [game design](docs/game-design.md) for the overall direction and the [rules](docs/rules.md) for the mechanics.
 
 ## Development
 

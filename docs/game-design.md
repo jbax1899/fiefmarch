@@ -1,25 +1,25 @@
 # Game design
 
-Fiefmarch is a turn-based medieval strategy game about commanding a small army, building a settlement, and fighting over territory. It takes some inspiration from _Feudal_, _Catan_, and _Age of Empires II_, but we're developing our own rules and identity.
+Fiefmarch is a turn-based medieval strategy game about raising an army, building up territory, and fighting over the map. _Feudal_, _Catan_, and _Age of Empires II_ are some of the influences.
 
-This document describes the kind of game we're aiming for. The [working rules](rules.md) cover the mechanics we've discussed so far.
+## Starting a match
 
-## How a match should feel
+Players secretly place their keep and starting army, then reveal their positions together. Where you settle affects what you can build and which resources are within reach. Gold could help with specialized units; forests and stone could make a good defensive position.
 
-Players secretly choose where to place their starting keep and army. That first decision should shape their options. A position near gold might help recruit specialized units, while access to forests and stone could make it easier to build defenses.
+Maps are generated from a seed, with terrain and resources mirrored to give each side similar opportunities. The layout changes between games, but neither player should start with an obvious advantage.
 
-Maps should change between matches without giving one side a clear advantage. We'll generate terrain and resources from a seed, then mirror the layout so opposing players have comparable starting opportunities.
+## Playing the map
 
-Turns should be short enough to keep everyone involved. Rather than moving an entire army at once, players would make a few decisions before control passes to someone else. Terrain, positioning, and unit matchups should matter more than sheer numbers.
+Turns should be quick. Each player gives a few orders, then play passes to the next person. Moving an entire army in one go would leave everyone else waiting too long.
 
-Holding land needs to be worth the effort. Farms, lumber camps, quarries, and mines bring in resources, but they're also places an opponent can attack. Each keep provides some basic income, so losing an outlying site doesn't leave a player with no way to recover.
+Terrain and unit matchups matter, but the rules should stay simple enough that you can judge a fight without doing much arithmetic.
 
-## Players and tabletop play
+Farms, lumber camps, quarries, and mines give players reasons to spread out. They're valuable, but exposed. Keeps provide a little income of their own so losing a distant building doesn't end the game.
 
-We're aiming for 2–4 players, with 1v1, 2v2, and four-player free-for-all matches. We'll work out the basic rules in 1v1 first. Three-player balance and turn order for larger games still need attention.
+## Player counts and tabletop play
 
-The same rules should also work on a physical table. Pieces, resource cards, and a few markers ought to be enough to track a match. That means avoiding constant calculations, routine troop upkeep, and mechanics that are practical only when a computer handles them.
+The plan is 2–4 players, including 1v1, 2v2, and four-player free-for-all. We'll start with 1v1 balance and work out the other formats from there.
 
-## Still to decide
+Fiefmarch should also work as a board game with pieces, resource cards, and a handful of markers. No routine troop upkeep or complicated recordkeeping.
 
-We haven't chosen a victory condition or settled the command and combat rules. Board size, starting armies, building costs, resource yields, and capture timing also need testing. Those decisions belong in the rules discussion, not in assumptions made while writing the game code.
+See [rules.md](rules.md) for the rules and numbers.
