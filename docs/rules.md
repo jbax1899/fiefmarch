@@ -19,7 +19,7 @@ Each player starts with:
 - One infantry on the diagonally inward tile beside the keep.
 - 2 Food, 2 Wood, 0 Stone, and 0 Gold.
 
-Starting positions are fixed. A player is eliminated when their last keep is destroyed and occupied by an enemy. Remove all their remaining units and buildings; they take no more turns. The last surviving player or team wins. Players may surrender. There is no round limit. All remaining players must agree to a draw.
+Starting positions are fixed. A player is eliminated when an enemy destroys and occupies their last keep, or when they resign. Elimination removes their units and buildings and ends their turns. The last surviving player or team wins. There is no round limit. All remaining players must agree to a draw.
 
 ## Rounds and actions
 
