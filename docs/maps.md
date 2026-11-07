@@ -22,16 +22,17 @@ Mountains form ranges, water forms connected lakes or coastlines, and forests fo
 
 ## Required resource access
 
-A home zone is the 6×6 corner around each keep in every standard mode. The space between home zones holds contested routes and additional resource sites. Each home zone must meet these limits:
+A home zone is the 6×6 corner around each keep in every standard mode. Each home zone must have:
 
 | Resource sites | Sites per zone | Maximum worker travel cost from keep |
 | -------------- | -------------: | -----------------------------------: |
 | Food           |            2–3 |                                    4 |
 | Wood           |            2–3 |                                    5 |
 | Stone          |            1–2 |                                    7 |
-| Gold           |              1 |                                    8 |
 
-Distance means the shortest legal worker path without roads, using terrain movement costs. A site counts only if its camp could actually be built and reached. Farms and lumber camps use marked resource tiles; fish, Stone, and Gold require one orthogonally adjacent, passable camp tile.
+Gold is placed outside home zones, toward the board center and opposing players. Each keep must have a usable Gold mine location 6–8 worker movement points away. No Gold mine location may be closer than 6 movement points to any starting keep.
+
+Distance means the shortest legal worker path to a usable camp tile without roads, using terrain movement costs. Farms and lumber camps use marked resource tiles; fish, Stone, and Gold require one orthogonally adjacent, passable camp tile.
 
 Only **one usable camp location per deposit** is required. Multiple possible locations are allowed but not required. A deposit can support one camp at a time, not one camp per adjacent tile.
 
@@ -42,7 +43,7 @@ The generator also requires:
 - At least three passable orthogonal tiles around each starting keep for recruitment.
 - Two independent passable routes from each keep toward the contested middle, excluding the keep tile itself.
 - Reachable resource sites without needing roads or crossing enemy starting positions.
-- Additional resource sites nearer the center, especially Stone or Gold, to reward expansion.
+- Additional resource sites near the center to reward expansion.
 - Exactly matching starting geography and resource sites after rotation.
 
 The map generator should create connected features, then place resources, and reject any seed that fails these checks. A narrow pass can be useful, but no single tile should block every route between two players.
