@@ -86,14 +86,14 @@ A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the fir
 | Stone | Quarry camps | Forts, keeps, rams |
 | Gold | Mining camps | Edicts and keeps |
 
-A functioning keep produces 1 Food at the start of each round. Each camp produces 1 of its resource at the same time. Camps do not need a worker after construction. There is no troop upkeep.
+A functioning keep produces 1 Food at the start of each round. Each camp produces 1 of its resource at the same time. Camps do not need a worker after construction. There is no troop upkeep. Only marked resource sites can support camps.
 
 Every camp claims one resource site. A site can be claimed by only one camp, regardless of owner. One camp cannot work multiple sites.
 
 | Camp | Location | Construction cost |
 | --- | --- | --- |
-| Farm | Plains tile | 1 Food, 1 Wood |
-| Lumber | Forest tile | 1 Food |
+| Farm | Marked fertile plains tile | 1 Food, 1 Wood |
+| Lumber | Marked timber site in forest | 1 Food |
 | Fishing | Passable shore tile orthogonally beside a fish-bearing water tile | 1 Food, 1 Wood |
 | Quarry | Passable tile orthogonally beside a Stone deposit in mountains | 1 Food, 1 Wood |
 | Mine | Passable tile orthogonally beside a Gold deposit in mountains | 1 Food, 1 Wood |
