@@ -90,7 +90,7 @@ A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the fir
 
 A functioning keep produces 1 Food at the start of each round. Each camp produces 1 of its resource at the same time. Camps do not need a worker after construction. There is no troop upkeep. Only marked resource sites can support camps.
 
-Every camp claims one resource site. A site can be claimed by only one camp, regardless of owner. One camp cannot work multiple sites.
+When building a camp, its owner chooses one eligible, unclaimed resource site. The claim stays fixed until the camp is removed. A site can be claimed by only one camp, regardless of owner. One camp cannot work multiple sites.
 
 | Camp    | Location                                                          | Construction cost |
 | ------- | ----------------------------------------------------------------- | ----------------- |
@@ -100,7 +100,7 @@ Every camp claims one resource site. A site can be claimed by only one camp, reg
 | Quarry  | Passable tile orthogonally beside a Stone deposit in mountains    | 1 Food, 1 Wood    |
 | Mine    | Passable tile orthogonally beside a Gold deposit in mountains     | 1 Food, 1 Wood    |
 
-A worker must be on the camp tile to build. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts. Fish, Stone, and Gold deposits cannot be walked on or built over.
+A worker must stand on the tile where it builds a camp, fort, or keep. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits cannot be walked on or built over.
 
 ### Occupation and pilfering
 
@@ -117,13 +117,13 @@ A unit that moved onto an undefended camp may pilfer later that round. A unit th
 | Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
 | Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
-Forts may be built on empty, passable tiles. They have no structural HP. An enemy entering a fort after defeating any defender destroys it.
+Forts may be built on passable tiles without another building. They have no structural HP. An enemy entering a fort after defeating any defender destroys it.
 
 Keeps have **2 structural HP**. A defending military unit must be defeated before attackers can damage the structure. Ordinary adjacent attacks deal 1 structural damage; rams deal 2. Archers cannot attack keep structures. Attacking the structure may include movement into range, but the attacker stays outside.
 
 At 0 structural HP, a keep cannot recruit or produce Food. An enemy must enter it in a later movement action to destroy it. Structural HP cannot be repaired.
 
-Players may build up to **three keeps per match**, including the starting keep. A worker builds a new keep for the cost above, at least four orthogonal grid steps from every existing keep. A destroyed keep cannot be replaced.
+Players may build up to **three keeps per match**, including the starting keep. A new keep needs a passable tile without a building or road, at least four orthogonal grid steps from every existing keep. A destroyed keep cannot be replaced.
 
 A keep cannot recruit while enemy military is orthogonally adjacent to it.
 
