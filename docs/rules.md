@@ -19,7 +19,7 @@ Each player starts with:
 - One infantry on the diagonally inward tile beside the keep.
 - 2 Food, 2 Wood, 0 Stone, and 0 Gold.
 
-Starting positions are fixed. A player is eliminated when their last keep is destroyed and occupied by an enemy. The last surviving player or team wins. Players may surrender. A standard match ends in a draw after 20 rounds if opponents remain.
+Starting positions are fixed. A player is eliminated when their last keep is destroyed and occupied by an enemy. The last surviving player or team wins. Players may surrender. There is no round limit. All remaining players must agree to a draw.
 
 ## Rounds and actions
 
