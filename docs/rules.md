@@ -6,10 +6,10 @@ See [maps.md](maps.md) for terrain and generation rules, and [edicts.md](edicts.
 
 ## Match setup
 
-| Mode | Board | Target length |
-| --- | --- | --- |
-| 1v1 | 12×12 | 10–15 minutes |
-| 2v2 | 16×16 | About 20 minutes |
+| Mode                     | Board | Target length    |
+| ------------------------ | ----- | ---------------- |
+| 1v1                      | 12×12 | 10–15 minutes    |
+| 2v2                      | 16×16 | About 20 minutes |
 | Four-player free-for-all | 16×16 | About 20 minutes |
 
 Each player starts with:
@@ -51,14 +51,14 @@ A unit already on a road can travel two consecutive connected road tiles for 1 m
 
 ## Units and combat
 
-| Unit | Movement | Role |
-| --- | ---: | --- |
-| Infantry | 2 | Cheap general-purpose soldier |
-| Spearman | 2 | Strong against cavalry |
-| Archer | 2 | Ranged attacks |
-| Cavalry | 3 | Fast; strong against archers |
-| Battering ram | 1 | Attacks fortified positions |
-| Worker | 2 | Builds; cannot attack |
+| Unit          | Movement | Role                          |
+| ------------- | -------: | ----------------------------- |
+| Infantry      |        2 | Cheap general-purpose soldier |
+| Spearman      |        2 | Strong against cavalry        |
+| Archer        |        2 | Ranged attacks                |
+| Cavalry       |        3 | Fast; strong against archers  |
+| Battering ram |        1 | Attacks fortified positions   |
+| Worker        |        2 | Builds; cannot attack         |
 
 Military units have **3 HP**. Normal attacks deal 1 damage, with these exceptions:
 
@@ -79,24 +79,24 @@ A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the fir
 
 ## Resources and camps
 
-| Resource | Produced by | Uses |
-| --- | --- | --- |
-| Food | Keeps, farm camps, fishing camps | Workers and troops |
-| Wood | Lumber camps | Camps, roads, buildings, equipment |
-| Stone | Quarry camps | Forts, keeps, rams |
-| Gold | Mining camps | Edicts and keeps |
+| Resource | Produced by                      | Uses                               |
+| -------- | -------------------------------- | ---------------------------------- |
+| Food     | Keeps, farm camps, fishing camps | Workers and troops                 |
+| Wood     | Lumber camps                     | Camps, roads, buildings, equipment |
+| Stone    | Quarry camps                     | Forts, keeps, rams                 |
+| Gold     | Mining camps                     | Edicts and keeps                   |
 
 A functioning keep produces 1 Food at the start of each round. Each camp produces 1 of its resource at the same time. Camps do not need a worker after construction. There is no troop upkeep. Only marked resource sites can support camps.
 
 Every camp claims one resource site. A site can be claimed by only one camp, regardless of owner. One camp cannot work multiple sites.
 
-| Camp | Location | Construction cost |
-| --- | --- | --- |
-| Farm | Marked fertile plains tile | 1 Food, 1 Wood |
-| Lumber | Marked timber site in forest | 1 Food |
-| Fishing | Passable shore tile orthogonally beside a fish-bearing water tile | 1 Food, 1 Wood |
-| Quarry | Passable tile orthogonally beside a Stone deposit in mountains | 1 Food, 1 Wood |
-| Mine | Passable tile orthogonally beside a Gold deposit in mountains | 1 Food, 1 Wood |
+| Camp    | Location                                                          | Construction cost |
+| ------- | ----------------------------------------------------------------- | ----------------- |
+| Farm    | Marked fertile plains tile                                        | 1 Food, 1 Wood    |
+| Lumber  | Marked timber site in forest                                      | 1 Food            |
+| Fishing | Passable shore tile orthogonally beside a fish-bearing water tile | 1 Food, 1 Wood    |
+| Quarry  | Passable tile orthogonally beside a Stone deposit in mountains    | 1 Food, 1 Wood    |
+| Mine    | Passable tile orthogonally beside a Gold deposit in mountains     | 1 Food, 1 Wood    |
 
 A worker must be on the camp tile to build. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts. Fish, Stone, and Gold deposits cannot be walked on or built over.
 
@@ -110,10 +110,10 @@ A unit that moved onto an undefended camp may pilfer later that round. A unit th
 
 ## Forts and keeps
 
-| Building | Cost | Effect |
-| --- | --- | --- |
-| Fort | 1 Wood, 1 Stone | Gives its defender cover |
-| Keep | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
+| Building | Cost                    | Effect                                   |
+| -------- | ----------------------- | ---------------------------------------- |
+| Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
+| Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
 Forts may be built on empty, passable tiles. They have no structural HP. An enemy entering a fort after defeating any defender destroys it.
 
@@ -130,21 +130,21 @@ A keep cannot recruit while enemy military is orthogonally adjacent to it.
 Each surviving keep supports **five units total**, including **one worker**. Players may have at most three workers. Capacity is shared across the House; units are not tied to a particular keep.
 
 | Keeps | Total units | Maximum workers |
-| --- | ---: | ---: |
-| 1 | 5 | 1 |
-| 2 | 10 | 2 |
-| 3 | 15 | 3 |
+| ----- | ----------: | --------------: |
+| 1     |           5 |               1 |
+| 2     |          10 |               2 |
+| 3     |          15 |               3 |
 
 Losing a keep does not remove units already on the board. If the House is over capacity, it cannot recruit until it has room again.
 
-| Unit | Food | Wood | Stone |
-| --- | ---: | ---: | ---: |
-| Worker | 1 | 0 | 0 |
-| Infantry | 1 | 0 | 0 |
-| Spearman | 1 | 1 | 0 |
-| Archer | 1 | 2 | 0 |
-| Cavalry | 2 | 1 | 0 |
-| Ram | 0 | 2 | 2 |
+| Unit     | Food | Wood | Stone |
+| -------- | ---: | ---: | ----: |
+| Worker   |    1 |    0 |     0 |
+| Infantry |    1 |    0 |     0 |
+| Spearman |    1 |    1 |     0 |
+| Archer   |    1 |    2 |     0 |
+| Cavalry  |    2 |    1 |     0 |
+| Ram      |    0 |    2 |     2 |
 
 Recruiting costs one action and the listed resources. Each keep may recruit once per round.
 
