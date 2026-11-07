@@ -1,6 +1,6 @@
 # Working rules
 
-*Version 0.1 — design draft, not yet a complete playable rulebook.*
+_Version 0.1 — design draft, not yet a complete playable rulebook._
 
 These are the rules we've discussed so far. Some are firm design choices; others are **trial values** for our first playtests. Where a rule is missing, it's left open rather than filled in with an assumption.
 
