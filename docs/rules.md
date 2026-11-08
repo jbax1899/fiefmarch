@@ -16,7 +16,7 @@ Each player starts with:
 
 - A keep near their assigned corner.
 - A worker on the keep.
-- Infantry on the diagonally inward tile.
+- One infantry unit on the diagonally inward tile.
 - 2 Food, 2 Wood, no Stone or Gold.
 
 Starting positions are fixed. A player is eliminated when an enemy captures their last keep or when they resign. Their units, buildings, and turns are removed. The last surviving player or team wins. There is no round limit; all remaining players must agree to a draw.
@@ -28,9 +28,9 @@ Each player has **three actions per round**, taken one at a time in a fixed orde
 An action lets a player move, attack, recruit, build, demolish or pilfer a camp, or issue an Edict. Passing forfeits any remaining actions; they do not carry over.
 
 - Units may move more than once before another activity.
-- Attacking or pilfering ends a military unit's activity for the round. Each unit may attack once.
+- Attacking or pilfering ends a military unit's activity for the round. Each military unit may attack once.
 - Building ends a worker's activity for the round. Each worker may build once.
-- Units reset at the start of the next round.
+- Units can act again at the start of the next round.
 
 Income is collected before anyone acts each round.
 
@@ -42,7 +42,7 @@ In team games, allied units count as friendly for movement and worker protection
 
 Friendly military units can pass through each other but cannot end on the same tile. Enemy military blocks movement. Workers do not block friendly soldiers or recruitment; one worker and one friendly military unit may share a tile.
 
-Enemy military can enter an unprotected worker's tile and remove the worker without attacking. A protecting soldier must be defeated first. If a melee attacker enters the tile after defeating that soldier, the worker is removed too. Otherwise, the worker stays until an enemy enters.
+Enemy military can enter an unprotected worker's tile and remove the worker without attacking. A protecting military unit must be defeated first. If a melee attacker enters the tile after defeating the defender, the worker is removed too. Otherwise, the worker stays until an enemy enters.
 
 Two of your military units starting on orthogonally adjacent tiles may move together for one action. At each step, either or both may move one tile, staying orthogonally adjacent. Each follows normal movement rules and uses its own allowance. They may swap tiles if both moves are legal, but cannot attack during the group move.
 
@@ -80,7 +80,7 @@ Attacking ends the unit's activity. There is no retaliation or random damage. Un
 
 Military units on friendly forts or keeps above 0 structural HP are fortified, even after losing their cover. Entrench does not grant fortification.
 
-A soldier on such a building gains 1 cover, absorbing the first point of damage. Cover refreshes each round while the soldier stays there, and disappears if it leaves, the building is removed, or the keep reaches 0 HP. Returning that round does not restore cover. Cover cannot stack.
+A soldier on such a building gains 1 cover, absorbing the first point of damage. Cover refreshes at the start of each round while the soldier stays there, and disappears if it leaves, the building is removed, or the keep reaches 0 HP. Returning that round does not restore cover. Cover cannot stack.
 
 ## Resources and camps
 
@@ -113,7 +113,7 @@ Players can demolish their own camps for one action unless occupied by enemy mil
 
 Enemy military occupying a camp stops its production without taking ownership.
 
-A military unit on an enemy camp can spend another action to **Pilfer**, removing it and gaining 1 of its resource from the bank. The site becomes unclaimed and the unit's activity ends.
+A military unit on an enemy camp can spend a separate action to **Pilfer**, removing it and gaining 1 of its resource from the bank. The site becomes unclaimed and the unit's activity ends.
 
 A unit can move onto an undefended camp and pilfer later that round. If it fought a defender, it must wait until the next round. A camp resumes production at the next income step if the occupier leaves or dies before pilfering.
 
@@ -124,7 +124,7 @@ A unit can move onto an undefended camp and pilfer later that round. If it fough
 | Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
 | Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
-Forts need an empty, passable tile. New forts and keeps must have at least one tile between them and opposing forts or keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. Enemy military destroys a fort by entering its tile after defeating any defender.
+Forts may be built on passable tiles without another building. New forts and keeps must have at least one tile between them and opposing forts or keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. Enemy military destroys a fort by entering its tile after defeating any defender.
 
 Keeps have **2 structural HP**. Attackers must defeat any defender first. Adjacent attacks deal 1 structural damage, or 2 from a ram. Archers cannot attack keeps. An attacker may move into range to strike, but stays outside.
 
