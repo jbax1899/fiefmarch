@@ -1,4 +1,4 @@
-import { ACTIONS_PER_TURN, type MatchState, type PlayerId } from './state.ts';
+import { ACTIONS_PER_TURN, type MatchState, type PlayerId } from "./state.ts";
 
 export type CommandResult =
   | { ok: true; state: MatchState }
@@ -21,9 +21,9 @@ export function advanceTurn(state: MatchState): MatchState {
 }
 
 export function useAction(state: MatchState, playerId: PlayerId): CommandResult {
-  if (state.status !== 'playing') return { ok: false, state, reason: 'Match has finished' };
+  if (state.status !== "playing") return { ok: false, state, reason: "Match has finished" };
   if (state.turn.order[state.turn.currentIndex] !== playerId) {
-    return { ok: false, state, reason: 'Not your turn' };
+    return { ok: false, state, reason: "Not your turn" };
   }
 
   if (state.turn.actionsRemaining === 1) return { ok: true, state: advanceTurn(state) };
@@ -34,9 +34,9 @@ export function useAction(state: MatchState, playerId: PlayerId): CommandResult 
 }
 
 export function endTurn(state: MatchState, playerId: PlayerId): CommandResult {
-  if (state.status !== 'playing') return { ok: false, state, reason: 'Match has finished' };
+  if (state.status !== "playing") return { ok: false, state, reason: "Match has finished" };
   if (state.turn.order[state.turn.currentIndex] !== playerId) {
-    return { ok: false, state, reason: 'Not your turn' };
+    return { ok: false, state, reason: "Not your turn" };
   }
   return { ok: true, state: advanceTurn(state) };
 }

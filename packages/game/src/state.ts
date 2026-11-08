@@ -20,7 +20,7 @@ export type TurnState = {
 };
 
 export type MatchState = {
-  status: 'playing' | 'finished';
+  status: "playing" | "finished";
   players: PlayerState[];
   turn: TurnState;
   winnerTeamId?: TeamId;
@@ -30,15 +30,15 @@ export const ACTIONS_PER_TURN = 3;
 
 export function createMatch(setup: readonly PlayerSetup[]): MatchState {
   if (setup.length !== 2 && setup.length !== 4) {
-    throw new Error('A match needs two or four players');
+    throw new Error("A match needs two or four players");
   }
 
   if (setup.some(({ id, teamId }) => !id.trim() || (teamId !== undefined && !teamId.trim()))) {
-    throw new Error('Player and team IDs cannot be empty');
+    throw new Error("Player and team IDs cannot be empty");
   }
 
   if (new Set(setup.map((player) => player.id)).size !== setup.length) {
-    throw new Error('Player IDs must be unique');
+    throw new Error("Player IDs must be unique");
   }
 
   const players = setup.map(({ id, teamId }) => ({
@@ -48,11 +48,11 @@ export function createMatch(setup: readonly PlayerSetup[]): MatchState {
   }));
 
   if (new Set(players.map((player) => player.teamId)).size < 2) {
-    throw new Error('A match needs opposing sides');
+    throw new Error("A match needs opposing sides");
   }
 
   return {
-    status: 'playing',
+    status: "playing",
     players,
     turn: {
       round: 1,
