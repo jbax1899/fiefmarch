@@ -23,7 +23,7 @@ Starting positions are fixed. A player is eliminated when an enemy destroys and 
 
 ## Rounds and actions
 
-Each player gets **three actions per round**. Players take one action at a time in a fixed order chosen at match start. Team turns alternate between teams where possible.
+Each player gets **three actions per round**. Players take one action at a time in a fixed order chosen at match start. Team turns alternate between teams where possible. Players can command only their own units, including when moving two units together.
 
 An action can move a unit, attack, recruit, build, demolish a camp, pilfer a camp, or issue an Edict. Passing gives up the player's remaining actions. Unused actions do not carry over.
 
