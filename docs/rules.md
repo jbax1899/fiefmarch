@@ -47,7 +47,7 @@ A worker and military unit starting together may move along the same path for on
 
 ### Roads
 
-A worker can lay two connected, orthogonal road tiles for 1 Wood and one action. Roads can be built on plains, forests, and deserts, but not mountains or water. The first tile is on or next to the worker; the second connects to it.
+A worker can build one road tile on their own tile for 1 Wood and one action. Roads can be built on plains, forests, and deserts, but not mountains or water. A tile cannot have more than one road.
 
 A unit already on a road can travel two consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
 
@@ -104,7 +104,7 @@ When building a camp, its owner chooses one eligible, unclaimed resource site. T
 | Quarry  | Passable tile orthogonally beside a Stone deposit in mountains    | 1 Food, 1 Wood    |
 | Mine    | Passable tile orthogonally beside a Gold deposit in mountains     | 1 Food, 1 Wood    |
 
-A worker must stand on the tile where it builds a camp, fort, or keep. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits cannot be walked on or built over.
+A worker must stand on the tile where it builds a road, camp, fort, or keep. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits cannot be walked on or built over.
 
 A player may spend one action to demolish a camp they own, unless enemy military occupies it. They recover one resource used to build it, choosing which if the camp cost more than one. The site becomes unclaimed.
 
