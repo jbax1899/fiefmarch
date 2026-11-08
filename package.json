@@ -11,9 +11,9 @@
     "dev:client": "pnpm --filter @fiefmarch/client dev",
     "dev:server": "pnpm --filter @fiefmarch/server dev",
     "build": "pnpm --filter @fiefmarch/client build && pnpm --filter @fiefmarch/server build",
-    "typecheck": "pnpm --filter @fiefmarch/client typecheck && pnpm --filter @fiefmarch/server typecheck",
-    "lint": "eslint apps",
-    "test": "pnpm --filter @fiefmarch/server test",
+    "typecheck": "pnpm --filter @fiefmarch/game typecheck && pnpm --filter @fiefmarch/client typecheck && pnpm --filter @fiefmarch/server typecheck",
+    "lint": "eslint apps packages",
+    "test": "pnpm --filter @fiefmarch/game test && pnpm --filter @fiefmarch/server test",
     "smoke:server": "pnpm --filter @fiefmarch/server smoke",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

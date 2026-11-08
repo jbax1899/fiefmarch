@@ -47,6 +47,8 @@ importers:
         specifier: 1.4.4
         version: 1.4.4
 
+  packages/game: {}
+
 packages:
 
   '@cacheable/memory@2.2.0':
