@@ -36,15 +36,15 @@ Income is collected before anyone acts each round.
 
 ## Moving
 
-Movement is orthogonal. Entering a tile costs 1 movement point, or 2 for forests. Mountains and water are impassable. Any unit may move one passable tile, even if it costs more than its movement allowance.
+Movement is orthogonal. Entering a tile costs 1 movement point, or 2 for forests. Mountains and water are impassable. Any unit may move one adjacent passable tile, even if it costs more than its movement allowance.
 
 In team games, allied units count as friendly for movement and worker protection, and allied forts and keeps count as friendly for cover and fortification.
 
 Friendly military units can pass through each other but cannot end on the same tile. Enemy military blocks movement. Workers do not block friendly soldiers or recruitment; one worker and one friendly military unit may share a tile.
 
-Enemy military can enter an unprotected worker's tile and remove the worker without attacking. A protecting soldier must be defeated first. If a melee attacker enters the tile after defeating that soldier, the worker also dies. Otherwise, the worker stays until an enemy enters.
+Enemy military can enter an unprotected worker's tile and remove the worker without attacking. A protecting soldier must be defeated first. If a melee attacker enters the tile after defeating that soldier, the worker is removed too. Otherwise, the worker stays until an enemy enters.
 
-Two of your military units starting on adjacent tiles may move together for one action. At each step, either or both may move one tile, staying orthogonally adjacent. Each follows normal movement rules and uses its own allowance. They may swap tiles if both moves are legal, but cannot attack during the group move.
+Two of your military units starting on orthogonally adjacent tiles may move together for one action. At each step, either or both may move one tile, staying orthogonally adjacent. Each follows normal movement rules and uses its own allowance. They may swap tiles if both moves are legal, but cannot attack during the group move.
 
 A worker and military unit sharing a tile may move together along the same path for one action. Each uses its own movement allowance; the soldier can continue after the worker stops. The worker cannot enter an enemy tile and stays on its last legal tile if the soldier attacks.
 
@@ -124,7 +124,7 @@ A unit can move onto an undefended camp and pilfer later that round. If it fough
 | Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
 | Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
-Forts need an empty, passable tile. New forts and keeps must have at least one empty tile between them and opposing forts or keeps orthogonally; diagonal adjacency is allowed. Forts have no structural HP. Enemy military destroys a fort by entering its tile after defeating any defender.
+Forts need an empty, passable tile. New forts and keeps must have at least one tile between them and opposing forts or keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. Enemy military destroys a fort by entering its tile after defeating any defender.
 
 Keeps have **2 structural HP**. Attackers must defeat any defender first. Adjacent attacks deal 1 structural damage, or 2 from a ram. Archers cannot attack keeps. An attacker may move into range to strike, but stays outside.
 
