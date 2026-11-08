@@ -30,7 +30,7 @@ Each keep's 6×6 corner home zone must have:
 | Wood           |            2–3 |                                    5 |
 | Stone          |            1–2 |                                    7 |
 
-Gold sits outside home zones, toward the center and opponents. Each keep must have a usable Gold mine location 6–8 worker movement points away, and none may be within 6 points of any starting keep.
+Gold sits outside home zones, toward the center and opponents. Each keep must have a usable Gold mine location 6–8 worker movement points away, and none may be fewer than 6 points from any starting keep.
 
 Distances use the shortest legal worker path to a camp tile, without roads. Farms and lumber camps occupy marked resource tiles; fish, Stone, and Gold camps use an adjacent passable tile.
 
@@ -41,7 +41,7 @@ Maps must also have:
 - At least one farm site in each home zone.
 - No more than 25% impassable tiles in a home zone.
 - At least three passable tiles orthogonally adjacent to each starting keep for recruitment.
-- Two separate passable routes from each keep toward the center, excluding the keep tile.
+- Two independent passable routes from each keep toward the center, excluding the keep tile.
 - Resource sites reachable without roads or passing through enemy starting positions.
 - Additional resource sites near the center to reward expansion.
 - Identical starting terrain and resource sites after rotation.
