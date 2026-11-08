@@ -39,7 +39,7 @@ Income is collected at the start of each round, before anyone acts.
 
 Movement is orthogonal. Normal tiles cost 1 movement point to enter; forests cost 2. Mountains and water are impassable. Any unit can move one adjacent passable tile even if its cost exceeds its movement allowance.
 
-In team games, teammates' units count as friendly for movement and worker protection. They may pass through one another's soldiers and protect one another's workers. Players still command only their own units.
+In team games, teammates' units count as friendly for movement and worker protection, and teammates' forts and keeps count as friendly for cover and fortification. Players still command only their own units.
 
 Friendly military units can pass through one another but cannot end on the same tile. Enemy military units block normal movement. Workers do not block friendly military movement or spawning. One worker and one friendly military unit may share a tile. Enemy military can enter an unprotected worker's tile, immediately removing the worker without attacking. An enemy must defeat a protecting military unit before removing the worker. If a melee attacker defeats the military unit and enters its tile, the worker is removed too. If the attack does not enter the tile, the worker remains until an enemy enters it.
 
@@ -79,7 +79,7 @@ Units do not heal on their own. Rally can restore military units' HP.
 
 ### Cover
 
-A military unit on its own fort or keep is fortified, even after its cover is used. Entrench does not count as fortification.
+A military unit on a friendly fort or keep is fortified, even after its cover is used. Entrench does not count as fortification.
 
 A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the first point of damage. Cover refreshes to 1 at the start of each round while the soldier stays there. Unused cover disappears when the soldier leaves or the building is removed. Returning to the same building that round does not renew it. Cover cannot stack.
 
