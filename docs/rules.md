@@ -49,7 +49,7 @@ A worker and military unit starting together may move along the same path for on
 
 A worker can build one road tile on their own tile for 1 Wood and one action. Roads can be built on plains, forests, and deserts, but not mountains or water. A tile cannot have more than one road.
 
-A unit already on a road can travel two consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
+A unit already on a road can travel three consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
 
 ## Units and combat
 
