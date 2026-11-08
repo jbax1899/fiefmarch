@@ -79,9 +79,9 @@ Units do not heal on their own. Rally can restore military units' HP.
 
 ### Cover
 
-A military unit on a friendly fort or keep is fortified, even after its cover is used. Entrench does not count as fortification.
+A military unit on a friendly fort or a keep above 0 structural HP is fortified, even after its cover is used. Entrench does not count as fortification.
 
-A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the first point of damage. Cover refreshes to 1 at the start of each round while the soldier stays there. Unused cover disappears when the soldier leaves or the building is removed. Returning to the same building that round does not renew it. Cover cannot stack.
+A soldier occupying a friendly fort or a keep above 0 structural HP gains 1 cover, which absorbs the first point of damage. Cover refreshes to 1 at the start of each round while the soldier stays there. Unused cover disappears when the soldier leaves, the building is removed, or the keep reaches 0 structural HP. Returning to the same building that round does not renew it. Cover cannot stack.
 
 ## Resources and camps
 
@@ -129,7 +129,7 @@ Forts may be built on passable tiles without another building. A new fort or kee
 
 Keeps have **2 structural HP**. A defending military unit must be defeated before attackers can damage the structure. Ordinary adjacent attacks deal 1 structural damage; rams deal 2. Archers cannot attack keep structures. Attacking the structure may include movement into range, but the attacker stays outside.
 
-At 0 structural HP, a keep cannot recruit, produce Food, or support units. An enemy must enter it in a later movement action to destroy it. Structural HP cannot be repaired.
+At 0 structural HP, a keep cannot recruit, produce Food, support units, or provide cover or fortification. Soldiers may still defend its tile. An enemy must enter it in a later movement action to destroy it. Structural HP cannot be repaired.
 
 Players may build up to **three keeps per match**, including the starting keep. A new keep needs a passable tile without a building or road, at least four orthogonal grid steps from every existing keep. A destroyed keep cannot be replaced.
 
