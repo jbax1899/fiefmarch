@@ -144,7 +144,7 @@ Each keep above 0 structural HP supports **five units total**, including **one w
 | 2            |          10 |               2 |
 | 3            |          15 |               3 |
 
-Losing or disabling a keep does not remove units already on the board. If the House is over capacity, it cannot recruit until it has room again.
+Losing or disabling a keep does not remove units already on the board. Recruitment requires room under the total-unit limit. The worker limit applies only when recruiting workers; exceeding it does not prevent recruiting military units.
 
 | Unit     | Food | Wood | Stone |
 | -------- | ---: | ---: | ----: |
