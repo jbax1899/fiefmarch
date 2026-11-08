@@ -47,7 +47,7 @@ A worker and military unit starting together may move along the same path for on
 
 ### Roads
 
-A worker can lay two connected, orthogonal road tiles for 1 Wood and one action. The first is on or next to the worker; the second connects to it.
+A worker can lay two connected, orthogonal road tiles for 1 Wood and one action. Roads can be built on plains, forests, and deserts, but not mountains or water. The first tile is on or next to the worker; the second connects to it.
 
 A unit already on a road can travel two consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
 
