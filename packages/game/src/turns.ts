@@ -27,10 +27,8 @@ export function useAction(state: MatchState, playerId: PlayerId): CommandResult 
   }
 
   if (state.turn.actionsRemaining === 1) return { ok: true, state: advanceTurn(state) };
-  return {
-    ok: true,
-    state: { ...state, turn: { ...state.turn, actionsRemaining: state.turn.actionsRemaining - 1 } },
-  };
+  const turn = { ...state.turn, actionsRemaining: state.turn.actionsRemaining - 1 };
+  return { ok: true, state: { ...state, turn } };
 }
 
 export function endTurn(state: MatchState, playerId: PlayerId): CommandResult {
