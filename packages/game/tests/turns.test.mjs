@@ -93,5 +93,41 @@ test("validates player setup and distinct sides", () => {
     { id: "a", teamId: "x" },
     { id: "b", teamId: "x" },
   ];
-  assert.throws(() => createMatch(sameTeam), /opposing/);
+  assert.throws(() => createMatch(sameTeam), /team/);
+});
+
+test("four-player setup rejects unequal and mixed teams", () => {
+  const threeVsOne = [
+    { id: "a", teamId: "red" },
+    { id: "b", teamId: "red" },
+    { id: "c", teamId: "red" },
+    { id: "d", teamId: "blue" },
+  ];
+  const twoVsOneVsOne = [
+    { id: "a", teamId: "red" },
+    { id: "b", teamId: "red" },
+    { id: "c", teamId: "blue" },
+    { id: "d", teamId: "green" },
+  ];
+  assert.throws(() => createMatch(threeVsOne), /team/i);
+  assert.throws(() => createMatch(twoVsOneVsOne), /team/i);
+});
+
+test("2v2 turn order alternates teams, even if input groups teammates", () => {
+  const state = createMatch([
+    { id: "a", teamId: "red" },
+    { id: "b", teamId: "red" },
+    { id: "c", teamId: "blue" },
+    { id: "d", teamId: "blue" },
+  ]);
+  assert.deepEqual(state.turn.order, ["a", "c", "b", "d"]);
+  assert.deepEqual(
+    state.players.map(({ id }) => id),
+    ["a", "b", "c", "d"],
+  );
+});
+
+test("four-player free-for-all keeps its supplied order", () => {
+  const state = createMatch([{ id: "c" }, { id: "a" }, { id: "d" }, { id: "b" }]);
+  assert.deepEqual(state.turn.order, ["c", "a", "d", "b"]);
 });
