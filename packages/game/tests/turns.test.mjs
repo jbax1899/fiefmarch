@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { createMatch, applyCommand } from "../src/index.ts";
-import { useAction } from "../src/turns.ts";
+import { advanceTurn, useAction } from "../src/turns.ts";
 
 const start = () => createMatch([{ id: "a" }, { id: "b" }]);
 
@@ -120,4 +120,13 @@ test("2v2 turn order alternates teams, even if input groups teammates", () => {
 test("four-player free-for-all keeps its supplied order", () => {
   const state = createMatch([{ id: "c" }, { id: "a" }, { id: "d" }, { id: "b" }]);
   assert.deepEqual(state.turn.order, ["c", "a", "d", "b"]);
+});
+
+test("turn advancement rejects a match without active players", () => {
+  const state = start();
+  const invalid = {
+    ...state,
+    players: state.players.map((player) => ({ ...player, eliminated: true })),
+  };
+  assert.throws(() => advanceTurn(invalid), /No active players/);
 });

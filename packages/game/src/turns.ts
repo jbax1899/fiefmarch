@@ -5,6 +5,11 @@ export type CommandResult =
 
 export function advanceTurn(state: MatchState): MatchState {
   const { order, currentIndex } = state.turn;
+  const hasActivePlayer = order.some((id) =>
+    state.players.some((player) => player.id === id && !player.eliminated),
+  );
+  if (!hasActivePlayer) throw new Error("No active players to advance to");
+
   let index = currentIndex;
   let round = state.turn.round;
 
