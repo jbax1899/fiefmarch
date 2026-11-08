@@ -18,7 +18,7 @@ Starting keeps sit one tile in from each corner. Using zero-based coordinates, t
 | Mountain |    Impassable | Marked Stone or Gold deposit |
 | Water    |    Impassable | Marked fish deposit          |
 
-Mountains form ranges, water forms connected lakes or coastlines, and forests grow in clusters. Only marked plains and forest tiles provide Food or Wood. Terrain crossing a symmetry boundary must connect. Rivers can use connected water tiles. Players build roads during matches.
+Mountains form ranges, water forms connected lakes or coastlines, and forests grow in clusters. Farms and lumber camps need marked plains and forest tiles; not every tile has a resource site. Terrain crossing a symmetry boundary must connect. Rivers can use connected water tiles. Players build roads during matches.
 
 ## Required resource access
 
