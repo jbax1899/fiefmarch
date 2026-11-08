@@ -9,6 +9,9 @@ export function applyCommand(
   command: GameCommand,
 ): CommandResult {
   if (state.status !== "playing") return { ok: false, state, reason: "Match has finished" };
+  if (!command || (command.type !== "end-turn" && command.type !== "resign")) {
+    return { ok: false, state, reason: "Unknown command" };
+  }
   if (command.type === "end-turn") return endTurn(state, playerId);
 
   const player = state.players.find(({ id }) => id === playerId);

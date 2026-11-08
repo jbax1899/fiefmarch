@@ -53,6 +53,16 @@ test("invalid requests leave the original state unchanged", () => {
   assert.equal(state.turn.currentIndex, 0);
 });
 
+test("unknown commands do not resign the player", () => {
+  const state = start();
+  for (const command of [{ type: "attack" }, {}, null]) {
+    const result = applyCommand(state, "a", command);
+    assert.equal(result.ok, false);
+    assert.equal(result.state, state);
+    assert.equal(state.players[0].eliminated, false);
+  }
+});
+
 test("a player may resign outside their turn and the last side wins", () => {
   const state = start();
   const result = applyCommand(state, "b", { type: "resign" });
