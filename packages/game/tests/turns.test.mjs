@@ -79,6 +79,9 @@ test("resigning on turn skips the eliminated player without changing order", () 
 test("validates player setup and distinct sides", () => {
   assert.throws(() => createMatch([{ id: "a" }]), /two or four/);
   assert.throws(() => createMatch([{ id: "a" }, { id: "a" }]), /unique/);
-  const sameTeam = [{ id: "a", teamId: "x" }, { id: "b", teamId: "x" }];
+  const sameTeam = [
+    { id: "a", teamId: "x" },
+    { id: "b", teamId: "x" },
+  ];
   assert.throws(() => createMatch(sameTeam), /opposing/);
 });

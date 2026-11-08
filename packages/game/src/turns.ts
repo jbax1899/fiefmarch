@@ -1,8 +1,7 @@
 import { ACTIONS_PER_TURN, type MatchState, type PlayerId } from "./state.ts";
 
 export type CommandResult =
-  | { ok: true; state: MatchState }
-  | { ok: false; state: MatchState; reason: string };
+  { ok: true; state: MatchState } | { ok: false; state: MatchState; reason: string };
 
 export function advanceTurn(state: MatchState): MatchState {
   const { order, currentIndex } = state.turn;
