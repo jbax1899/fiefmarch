@@ -10,7 +10,6 @@ A cooldown of 2 means an Edict used in round 4 is available again in round 6. Co
 | Entrench     |    1 | 2 rounds | Give one friendly infantry or spearman on open ground 1 cover until it moves, attacks, or the cover absorbs damage |
 | Rally        |    2 | 3 rounds | Restore 1 HP to up to two friendly military units within 2 orthogonal tiles of a friendly keep                     |
 | Border Levy  |    2 | 3 rounds | Recruit infantry at a friendly fort, paying 1 Food                                                                 |
-| Royal Survey |    1 | 2 rounds | One friendly worker builds a camp on a legal adjacent tile, paying the usual cost                                  |
 | Requisition  |    1 | 2 rounds | Gain 3 Food, 2 Wood, or 1 Stone                                                                                    |
 
 ## Restrictions
@@ -18,7 +17,6 @@ A cooldown of 2 means an Edict used in round 4 is available again in round 6. Co
 - Muster uses that keep's recruitment for the round. Both units need legal spawn tiles and free unit capacity.
 - Border Levy follows normal recruitment placement: inside the fort first, then an orthogonally adjacent passable tile. The new infantry is inactive until next round.
 - Camps count as open ground for Entrench. Forts and keeps do not. Entrench cannot stack with other cover. Rally can heal an entrenched unit without changing its cover.
-- Royal Survey ends the worker's activity for the round.
 - Rally's range counts horizontal and vertical steps, including turns. A unit one tile north and one tile east of a keep is within range.
 - Rally cannot restore a unit above 3 HP.
 - Edicts do not allow another attack, construction, or recruitment where one has already been used.
