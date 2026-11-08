@@ -51,7 +51,7 @@ A worker and military unit starting together may move along the same path for on
 
 A worker can build one road tile on their own tile for 1 Wood and one action. Roads can be built on plains, forests, and deserts, but not mountains or water. A tile cannot have more than one road.
 
-A unit already on a road can travel three consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
+A unit already on a road can travel up to three consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
 
 ## Units and combat
 
@@ -71,7 +71,7 @@ Military units have **3 HP**. Normal attacks deal 1 damage, with these exception
 - Rams deal 2 damage to fortified units and keep structures. They cannot attack unfortified units.
 - Archers attack enemy military units one or two tiles away along a row or column. Units and mountains block line of sight. Archers cannot attack workers or keep structures.
 
-For melee attacks, move into the enemy's tile to attack. Movement and the attack cost one action. If the enemy survives, the attacker stays on the last legal tile. If the enemy dies, the attacker enters its tile, unless an intact keep blocks entry. A unit already adjacent may attack without moving. Archers attack from their current tile without moving.
+For melee attacks, move into the enemy's tile to attack. Movement and the attack cost one action. If the enemy survives, the attacker stays on the last legal tile. If the enemy dies, the attacker enters its tile, except when the enemy is defending a keep. Capturing a keep requires a separate movement action after its structural HP reaches 0. A unit already adjacent may attack without moving. Archers attack from their current tile without moving.
 
 Attacking ends the unit's activity. There is no retaliation or random damage. Units at 0 HP are removed immediately.
 
@@ -125,7 +125,7 @@ A unit that moved onto an undefended camp may pilfer later that round. A unit th
 | Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
 | Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
-Forts may be built on passable tiles without another building. A new fort or keep must have at least one tile of space from opposing forts and keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. An enemy entering a fort after defeating any defender destroys it.
+Forts may be built on passable tiles without another building. A new fort or keep must have at least one tile of space from opposing forts and keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. An enemy military unit destroys a fort when it enters its tile, after defeating any defender.
 
 Keeps have **2 structural HP**. A defending military unit must be defeated before attackers can damage the structure. Ordinary adjacent attacks deal 1 structural damage; rams deal 2. Archers cannot attack keep structures. Attacking the structure may include movement into range, but the attacker stays outside.
 
@@ -155,7 +155,7 @@ Losing or disabling a keep does not remove units already on the board. Recruitme
 | Cavalry  |    2 |    1 |     0 |
 | Ram      |    0 |    2 |     2 |
 
-Recruiting costs one action and the listed resources. Each keep may recruit once per round.
+Recruiting costs one action and the listed resources. Players recruit only from their own keeps, once per keep per round.
 
 A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, including teammates' workers, and workers can spawn with friendly military, including teammates' soldiers. Enemy units always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment is unavailable without enough resources, unit capacity, or a legal spawn tile. Invalid attempts spend no action or resources and do not use that keep's recruitment for the round. The game must prevent invalid recruitment choices.
 
