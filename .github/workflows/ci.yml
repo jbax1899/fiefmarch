@@ -28,6 +28,9 @@ jobs:
         with:
           bun-version: 1.4.4
       - run: pnpm install --frozen-lockfile
+      - run: |
+          pnpm exec prettier --write packages/game/src/turns.ts packages/game/tests/turns.test.mjs
+          git diff -- packages/game/src/turns.ts packages/game/tests/turns.test.mjs
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm typecheck
