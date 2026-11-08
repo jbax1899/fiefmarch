@@ -1,8 +1,8 @@
 # Rules
 
-Fiefmarch is played on a square grid. All combat and resource production are deterministic. Unit positions, resources, and Edict cooldowns are public.
+Fiefmarch uses a square grid, with no random combat or resource production. Unit positions, resources, and Edict cooldowns are public.
 
-See [maps.md](maps.md) for terrain and generation rules, and [edicts.md](edicts.md) for special actions.
+See [maps](maps.md) for terrain and [Edicts](edicts.md) for special actions.
 
 ## Match setup
 
@@ -14,44 +14,45 @@ See [maps.md](maps.md) for terrain and generation rules, and [edicts.md](edicts.
 
 Each player starts with:
 
-- One keep near an assigned corner.
-- One worker inside the keep.
-- One infantry on the diagonally inward tile beside the keep.
-- 2 Food, 2 Wood, 0 Stone, and 0 Gold.
+- A keep near their assigned corner.
+- A worker on the keep.
+- Infantry on the diagonally inward tile.
+- 2 Food, 2 Wood, no Stone or Gold.
 
-Starting positions are fixed. A player is eliminated when an enemy destroys and occupies their last keep, or when they resign. Elimination removes their units and buildings and ends their turns. The last surviving player or team wins. There is no round limit. All remaining players must agree to a draw.
+Starting positions are fixed. A player is eliminated when an enemy captures their last keep or when they resign. Their units, buildings, and turns are removed. The last surviving player or team wins. There is no round limit; all remaining players must agree to a draw.
 
 ## Rounds and actions
 
-Each player gets **three actions per round**. Players take one action at a time in the same order every round, chosen at match start. Team turns alternate between teams where possible. Players can command only their own units, including when moving two units together.
+Each player has **three actions per round**, taken one at a time in a fixed order chosen at match start. Team turns alternate where possible. Players can command only their own units, even in group moves.
 
-An action can move a unit, attack, recruit, build, demolish a camp, pilfer a camp, or issue an Edict. Passing gives up the player's remaining actions. Unused actions do not carry over.
+An action lets a player move, attack, recruit, build, demolish or pilfer a camp, or issue an Edict. Passing forfeits any remaining actions; they do not carry over.
 
-- A unit may move multiple times before taking another activity.
-- Attacking and pilfering end a military unit's activity for the round.
-- Building ends a worker's activity for the round.
-- A military unit attacks at most once per round; a worker builds at most once.
-- All units become available again at the start of the next round.
+- Units may move more than once before another activity.
+- Attacking or pilfering ends a military unit's activity for the round. Each unit may attack once.
+- Building ends a worker's activity for the round. Each worker may build once.
+- Units reset at the start of the next round.
 
-Income is collected at the start of each round, before anyone acts.
+Income is collected before anyone acts each round.
 
 ## Moving
 
-Movement is orthogonal. Normal tiles cost 1 movement point to enter; forests cost 2. Mountains and water are impassable. Any unit can move one adjacent passable tile even if its cost exceeds its movement allowance.
+Movement is orthogonal. Entering a tile costs 1 movement point, or 2 for forests. Mountains and water are impassable. Any unit may move one passable tile, even if it costs more than its movement allowance.
 
-In team games, teammates' units count as friendly for movement and worker protection, and teammates' forts and keeps count as friendly for cover and fortification. Players still command only their own units.
+In team games, allied units count as friendly for movement and worker protection, and allied forts and keeps count as friendly for cover and fortification.
 
-Friendly military units can pass through one another but cannot end on the same tile. Enemy military units block normal movement. Workers do not block friendly military movement or spawning. One worker and one friendly military unit may share a tile. Enemy military can enter an unprotected worker's tile, immediately removing the worker without attacking. An enemy must defeat a protecting military unit before removing the worker. If a melee attacker defeats the military unit and enters its tile, the worker is removed too. If the attack does not enter the tile, the worker remains until an enemy enters it.
+Friendly military units can pass through each other but cannot end on the same tile. Enemy military blocks movement. Workers do not block friendly soldiers or recruitment; one worker and one friendly military unit may share a tile.
 
-Two friendly military units starting on orthogonally adjacent tiles may move together for one action. They move in simultaneous steps: either or both may move one tile, but they must be orthogonally adjacent after each step. Each uses its own movement allowance and follows normal movement rules. They may swap tiles in one step if both moves are legal. Neither can attack during that action.
+Enemy military can enter an unprotected worker's tile and remove the worker without attacking. A protecting soldier must be defeated first. If a melee attacker enters the tile after defeating that soldier, the worker also dies. Otherwise, the worker stays until an enemy enters.
 
-A worker and military unit starting together may move along the same path for one action. Each has its own movement allowance; the worker stops when its allowance runs out, and the soldier may continue. A worker cannot follow a unit into an enemy tile. If the soldier attacks, the worker remains on its last legal tile.
+Two of your military units starting on adjacent tiles may move together for one action. At each step, either or both may move one tile, staying orthogonally adjacent. Each follows normal movement rules and uses its own allowance. They may swap tiles if both moves are legal, but cannot attack during the group move.
+
+A worker and military unit sharing a tile may move together along the same path for one action. Each uses its own movement allowance; the soldier can continue after the worker stops. The worker cannot enter an enemy tile and stays on its last legal tile if the soldier attacks.
 
 ### Roads
 
-A worker can build one road tile on their own tile for 1 Wood and one action. Roads can be built on plains, forests, and deserts, but not mountains or water. A tile cannot have more than one road.
+A worker builds a road on its tile for one action and 1 Wood. Roads work on plains, forests, and deserts, but not mountains or water. Only one road may occupy a tile.
 
-A unit already on a road can travel up to three consecutive connected road tiles for 1 movement point. Entering a road from off-road costs 1 point. Roads ignore forest penalties and may cross camp or fort tiles, but not keeps. Any player can use them.
+A unit on a road can travel up to three connected road tiles per movement point. Entering from off-road costs 1 point. Roads ignore forest penalties and can cross camps and forts, but not keeps. Anyone can use them.
 
 ## Units and combat
 
@@ -64,28 +65,26 @@ A unit already on a road can travel up to three consecutive connected road tiles
 | Battering ram |        2 | Attacks fortified positions   |
 | Worker        |        2 | Builds; cannot attack         |
 
-Military units have **3 HP**. Normal attacks deal 1 damage, with these exceptions:
+Military units have **3 HP**. Attacks deal 1 damage except:
 
 - Spearmen deal 2 damage to cavalry.
 - Cavalry deal 2 damage to archers.
-- Rams deal 2 damage to fortified units and keep structures. They cannot attack unfortified units.
-- Archers attack enemy military units one or two tiles away along a row or column. Units and mountains block line of sight. Archers cannot attack workers or keep structures.
+- Rams deal 2 damage to fortified units and keeps. They cannot attack unfortified units.
+- Archers attack enemy military one or two tiles away in the same row or column. Units and mountains block shots. Archers cannot attack workers or keeps.
 
-For melee attacks, move into the enemy's tile to attack. Movement and the attack cost one action. If the enemy survives, the attacker stays on the last legal tile. If the enemy dies, the attacker enters its tile, except when the enemy is defending a keep. Capturing a keep requires a separate movement action after its structural HP reaches 0. A unit already adjacent may attack without moving. Archers attack from their current tile without moving.
+A melee attack moves into an enemy's tile and costs one action, including the movement. If the defender survives, the attacker stays on its last legal tile. If the defender dies, the attacker enters, except on a keep. Capturing a keep takes a separate movement action after its structural HP reaches 0. Adjacent units can attack without moving; archers always attack from their own tile.
 
-Attacking ends the unit's activity. There is no retaliation or random damage. Units at 0 HP are removed immediately.
-
-Units do not heal on their own. Rally can restore military units' HP.
+Attacking ends the unit's activity. There is no retaliation or random damage. Units at 0 HP are removed immediately. Only Rally heals military units.
 
 ### Cover
 
-A military unit on a friendly fort or a keep above 0 structural HP is fortified, even after its cover is used. Entrench does not count as fortification.
+Military units on friendly forts or keeps above 0 structural HP are fortified, even after losing their cover. Entrench does not grant fortification.
 
-A soldier occupying a friendly fort or a keep above 0 structural HP gains 1 cover, which absorbs the first point of damage. Cover refreshes to 1 at the start of each round while the soldier stays there. Unused cover disappears when the soldier leaves, the building is removed, or the keep reaches 0 structural HP. Returning to the same building that round does not renew it. Cover cannot stack.
+A soldier on such a building gains 1 cover, absorbing the first point of damage. Cover refreshes each round while the soldier stays there, and disappears if it leaves, the building is removed, or the keep reaches 0 HP. Returning that round does not restore cover. Cover cannot stack.
 
 ## Resources and camps
 
-Each player collects and spends their own resources, including in team games. Teammates cannot share or transfer resources.
+Players manage their own resources. Teammates cannot share or transfer them.
 
 | Resource | Produced by                      | Uses                               |
 | -------- | -------------------------------- | ---------------------------------- |
@@ -94,9 +93,9 @@ Each player collects and spends their own resources, including in team games. Te
 | Stone    | Quarry camps                     | Forts, keeps, rams                 |
 | Gold     | Mining camps                     | Edicts and keeps                   |
 
-A functioning keep produces 1 Food at the start of each round. Each camp produces 1 of its resource at the same time. Camps do not need a worker after construction. There is no troop upkeep. Only marked resource sites can support camps.
+At the start of each round, a functioning keep produces 1 Food and each producing camp yields 1 resource. Camps need no worker after construction, and troops have no upkeep. Camps can claim only marked sites.
 
-When building a camp, its owner chooses one eligible, unclaimed resource site. The claim stays fixed until the camp is removed. A site can be claimed by only one camp, regardless of owner. One camp cannot work multiple sites.
+Each camp claims one eligible, unclaimed resource site when built. Only one camp may claim a site, and the claim lasts until the camp is removed.
 
 | Camp    | Location                                                          | Construction cost |
 | ------- | ----------------------------------------------------------------- | ----------------- |
@@ -106,17 +105,17 @@ When building a camp, its owner chooses one eligible, unclaimed resource site. T
 | Quarry  | Passable tile orthogonally beside a Stone deposit in mountains    | 1 Food, 1 Wood    |
 | Mine    | Passable tile orthogonally beside a Gold deposit in mountains     | 1 Food, 1 Wood    |
 
-A worker must stand on the tile where it builds a road, camp, fort, or keep. A camp, fort, or keep cannot share a tile with another building. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits cannot be walked on or built over.
+Workers build on their own tile. Camps, forts, and keeps cannot share tiles with other buildings. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits are impassable and cannot be built on.
 
-A player may spend one action to demolish a camp they own, unless enemy military occupies it. They recover one resource used to build it, choosing which if the camp cost more than one. The site becomes unclaimed.
+Players can demolish their own camps for one action unless occupied by enemy military. They recover one construction resource of their choice, and the site becomes unclaimed.
 
 ### Occupation and pilfering
 
-An enemy military unit occupying a camp stops its production but does not change ownership.
+Enemy military occupying a camp stops its production without taking ownership.
 
-A unit on an enemy camp may spend a separate action to **Pilfer**: remove the camp and take 1 of that resource from the bank. Pilfering ends the unit's activity. The site becomes unclaimed and can be worked again. Workers cannot pilfer.
+A military unit on an enemy camp can spend another action to **Pilfer**, removing it and gaining 1 of its resource from the bank. The site becomes unclaimed and the unit's activity ends.
 
-A unit that moved onto an undefended camp may pilfer later that round. A unit that attacked its defender must wait until the next round because attacking ended its activity. If an occupier leaves or is defeated before pilfering, the camp remains and can resume production at the next income step.
+A unit can move onto an undefended camp and pilfer later that round. If it fought a defender, it must wait until the next round. A camp resumes production at the next income step if the occupier leaves or dies before pilfering.
 
 ## Forts and keeps
 
@@ -125,17 +124,17 @@ A unit that moved onto an undefended camp may pilfer later that round. A unit th
 | Fort     | 1 Wood, 1 Stone         | Gives its defender cover                 |
 | Keep     | 2 Wood, 2 Stone, 2 Gold | Recruitment, 1 Food/round, unit capacity |
 
-Forts may be built on passable tiles without another building. A new fort or keep must have at least one tile of space from opposing forts and keeps horizontally and vertically; diagonal adjacency is allowed. Forts have no structural HP. An enemy military unit destroys a fort when it enters its tile, after defeating any defender.
+Forts need an empty, passable tile. New forts and keeps must have at least one empty tile between them and opposing forts or keeps orthogonally; diagonal adjacency is allowed. Forts have no structural HP. Enemy military destroys a fort by entering its tile after defeating any defender.
 
-Keeps have **2 structural HP**. A defending military unit must be defeated before attackers can damage the structure. Ordinary adjacent attacks deal 1 structural damage; rams deal 2. Archers cannot attack keep structures. Attacking the structure may include movement into range, but the attacker stays outside.
+Keeps have **2 structural HP**. Attackers must defeat any defender first. Adjacent attacks deal 1 structural damage, or 2 from a ram. Archers cannot attack keeps. An attacker may move into range to strike, but stays outside.
 
-At 0 structural HP, a keep cannot recruit, produce Food, support units, or provide cover or fortification. Soldiers may still defend its tile. An enemy must enter it in a later movement action to destroy it. Structural HP cannot be repaired.
+At 0 structural HP, a keep stops recruiting, producing Food, supporting units, and granting cover or fortification. Soldiers may still defend its tile. An enemy must enter in a later movement action to destroy it. Keeps cannot be repaired.
 
-Players may build up to **three keeps per match**, including the starting keep. A new keep needs a passable tile without a building or road, at least four orthogonal grid steps from every existing keep. A destroyed keep cannot be replaced.
+Players may build up to **three keeps per match**, including the starting keep. Each new keep needs an empty, passable tile without a road, at least four orthogonal steps from every existing keep. Destroyed keeps cannot be replaced.
 
 ## Unit capacity and recruitment
 
-Each keep above 0 structural HP supports **five units total**, including **one worker**. Players may have at most three workers. Capacity is shared across the House; units are not tied to a particular keep.
+Each keep above 0 structural HP supports **five units**, with **one worker slot**. Players may have at most three workers. Capacity is shared across the House, not tied to individual keeps.
 
 | Active keeps | Total units | Maximum workers |
 | ------------ | ----------: | --------------: |
@@ -144,7 +143,7 @@ Each keep above 0 structural HP supports **five units total**, including **one w
 | 2            |          10 |               2 |
 | 3            |          15 |               3 |
 
-Losing or disabling a keep does not remove units already on the board. Recruitment requires room under the total-unit limit. The worker limit applies only when recruiting workers; exceeding it does not prevent recruiting military units.
+Losing or disabling a keep does not remove existing units. Recruitment requires free total capacity; the worker limit only restricts new workers, not military recruitment.
 
 | Unit     | Food | Wood | Stone |
 | -------- | ---: | ---: | ----: |
@@ -155,8 +154,10 @@ Losing or disabling a keep does not remove units already on the board. Recruitme
 | Cavalry  |    2 |    1 |     0 |
 | Ram      |    0 |    2 |     2 |
 
-Recruiting costs one action and the listed resources. Players recruit only from their own keeps, once per keep per round.
+Recruitment costs one action and the listed resources. Players may recruit once per round from each of their own keeps.
 
-A unit appears **inside the keep first**, if its type can fit there. Otherwise, the player chooses one of the four orthogonally adjacent passable tiles. Military units can spawn with friendly workers, including teammates' workers, and workers can spawn with friendly military, including teammates' soldiers. Enemy units always block spawning. Military units cannot share a tile with other military units, and workers cannot share a tile with other workers. Recruitment is unavailable without enough resources, unit capacity, or a legal spawn tile. Invalid attempts spend no action or resources and do not use that keep's recruitment for the round. The game must prevent invalid recruitment choices.
+Units spawn **inside the keep** if there is room for their type, otherwise on a chosen passable tile orthogonally adjacent to it. Military can spawn with friendly workers, and workers with friendly military, including teammates' units. Enemy units block spawning. Two military units or two workers cannot share a tile.
 
-New military units can defend immediately but **cannot move, attack, or pilfer until the next round**, including those recruited by Edicts. New workers may move immediately but cannot build until the next round.
+Recruitment requires resources, capacity, and a legal spawn tile. Invalid choices are blocked and cost no action or resources; they do not use the keep's recruitment for the round.
+
+New military can defend immediately but **cannot move, attack, or pilfer until the next round**, even when recruited by Edicts. New workers may move immediately but cannot build until the next round.
