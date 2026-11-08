@@ -81,7 +81,7 @@ Units do not heal on their own. Rally can restore military units' HP.
 
 A military unit on its own fort or keep is fortified, even after its cover is used. Entrench does not count as fortification.
 
-A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the first point of damage. Cover refreshes to 1 at the start of each round while the soldier stays there. Unused cover disappears when the soldier leaves. Returning to the same building that round does not renew it. Cover cannot stack.
+A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the first point of damage. Cover refreshes to 1 at the start of each round while the soldier stays there. Unused cover disappears when the soldier leaves or the building is removed. Returning to the same building that round does not renew it. Cover cannot stack.
 
 ## Resources and camps
 
