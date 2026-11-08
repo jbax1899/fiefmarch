@@ -6,7 +6,7 @@ A cooldown of 2 means an Edict used in round 4 is available again in round 6. Co
 
 | Edict        | Gold | Cooldown | Effect                                                                                                             |
 | ------------ | ---: | -------: | ------------------------------------------------------------------------------------------------------------------ |
-| Muster       |    1 | 3 rounds | Recruit two infantry from one friendly keep, paying 2 Food                                                         |
+| Muster       |    1 | 3 rounds | Recruit two infantry from one of your keeps, paying 2 Food                                                         |
 | Entrench     |    1 | 2 rounds | Give one friendly infantry or spearman on open ground 1 cover until it moves, attacks, or the cover absorbs damage |
 | Rally        |    2 | 3 rounds | Restore 1 HP to up to two friendly military units within 2 orthogonal tiles of a friendly keep                     |
 | Border Levy  |    2 | 3 rounds | Recruit infantry at a friendly fort, paying 1 Food                                                                 |
