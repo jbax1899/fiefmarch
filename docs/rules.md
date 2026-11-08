@@ -83,6 +83,8 @@ A soldier occupying a friendly fort or keep gains 1 cover, which absorbs the fir
 
 ## Resources and camps
 
+Each player collects and spends their own resources, including in team games. Teammates cannot share or transfer resources.
+
 | Resource | Produced by                      | Uses                               |
 | -------- | -------------------------------- | ---------------------------------- |
 | Food     | Keeps, farm camps, fishing camps | Workers and troops                 |
