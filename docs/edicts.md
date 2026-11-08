@@ -18,7 +18,7 @@ A cooldown of 2 means an Edict used in round 4 is available again in round 6. Co
 - Border Levy follows normal recruitment placement: inside the fort first, then an orthogonally adjacent passable tile. In team games, it may use a teammate's fort. The issuing player pays the Gold and Food, owns the infantry, and uses their own unit capacity. The new infantry is inactive until next round.
 - Camps count as open ground for Entrench. Forts and keeps do not. Entrench cannot stack with other cover. Rally can heal an entrenched unit without changing its cover.
 - In team games, Entrench and Rally can target teammates' units. The player issuing the Edict spends their own Gold and uses their own cooldown.
-- Rally requires a friendly keep above 0 structural HP. Its range counts horizontal and vertical steps, including turns. A unit one tile north and one tile east of the keep is within range.
+- Rally can use any friendly keep above 0 structural HP, including a teammate's keep. The issuing player pays the Gold and uses their own cooldown. Range counts horizontal and vertical steps, including turns. A unit one tile north and one tile east of the keep is within range.
 - Rally cannot restore a unit above 3 HP.
 - Edicts do not allow another attack, construction, or recruitment where one has already been used.
 
