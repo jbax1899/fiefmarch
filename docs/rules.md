@@ -129,21 +129,22 @@ Forts may be built on passable tiles without another building. A new fort or kee
 
 Keeps have **2 structural HP**. A defending military unit must be defeated before attackers can damage the structure. Ordinary adjacent attacks deal 1 structural damage; rams deal 2. Archers cannot attack keep structures. Attacking the structure may include movement into range, but the attacker stays outside.
 
-At 0 structural HP, a keep cannot recruit or produce Food. An enemy must enter it in a later movement action to destroy it. Structural HP cannot be repaired.
+At 0 structural HP, a keep cannot recruit, produce Food, or support units. An enemy must enter it in a later movement action to destroy it. Structural HP cannot be repaired.
 
 Players may build up to **three keeps per match**, including the starting keep. A new keep needs a passable tile without a building or road, at least four orthogonal grid steps from every existing keep. A destroyed keep cannot be replaced.
 
 ## Unit capacity and recruitment
 
-Each surviving keep supports **five units total**, including **one worker**. Players may have at most three workers. Capacity is shared across the House; units are not tied to a particular keep.
+Each keep above 0 structural HP supports **five units total**, including **one worker**. Players may have at most three workers. Capacity is shared across the House; units are not tied to a particular keep.
 
-| Keeps | Total units | Maximum workers |
-| ----- | ----------: | --------------: |
-| 1     |           5 |               1 |
-| 2     |          10 |               2 |
-| 3     |          15 |               3 |
+| Active keeps | Total units | Maximum workers |
+| ------------ | ----------: | --------------: |
+| 0            |           0 |               0 |
+| 1            |           5 |               1 |
+| 2            |          10 |               2 |
+| 3            |          15 |               3 |
 
-Losing a keep does not remove units already on the board. If the House is over capacity, it cannot recruit until it has room again.
+Losing or disabling a keep does not remove units already on the board. If the House is over capacity, it cannot recruit until it has room again.
 
 | Unit     | Food | Wood | Stone |
 | -------- | ---: | ---: | ----: |
