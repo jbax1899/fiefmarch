@@ -10,7 +10,7 @@ export class BoardScene extends Phaser.Scene {
     const tileSize: number = 64; //px
     const map = mapJson.terrain;
 
-    this.scale.on("resize", () => {
+    const fitBoardToCamera = () => {
       fitBoard(
         this.cameras.main,
         this.scale.width,
@@ -19,6 +19,14 @@ export class BoardScene extends Phaser.Scene {
         map.length * tileSize,
         20,
       );
+    };
+
+    fitBoardToCamera();
+
+    this.scale.on("resize", fitBoardToCamera);
+
+    this.events.once("shutdown", () => {
+      this.scale.off("resize", fitBoardToCamera);
     });
 
     // get tile type/color from map data
