@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@fiefmarch/game": "workspace:*",
     "phaser": "4.2.1"
   },
   "devDependencies": {
