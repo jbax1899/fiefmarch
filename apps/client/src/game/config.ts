@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { EmptyScene } from "./scenes/EmptyScene";
+import { BoardScene } from "./scenes/BoardScene";
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -9,7 +9,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     width: 960,
     height: 640,
   },
-  scene: [EmptyScene],
+  scene: [BoardScene],
 };
 
 export default gameConfig;
