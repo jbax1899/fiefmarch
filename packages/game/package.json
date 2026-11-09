@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./maps/test-1v1.json": "./maps/test-1v1.json"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
