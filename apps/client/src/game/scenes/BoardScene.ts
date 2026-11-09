@@ -45,6 +45,10 @@ export class BoardScene extends Phaser.Scene {
                 const tile: string = map[y][x];
                 const color: number = getTileColor(tile);
                 this.add.rectangle(x * tileSize, y * tileSize, tileSize, tileSize, color).setOrigin(0);
+                this.add.rectangle(x * tileSize, y * tileSize, tileSize, tileSize).setOrigin(0).setStrokeStyle(1, 0x000000);
+                if (tile === '1' || tile === '2') {
+                    this.add.text(x * tileSize + tileSize / 2, y * tileSize + tileSize / 2, tile, { fontSize: '16px', color: '#0000000' }).setOrigin(0.5);
+                }
             }
         }
     }
