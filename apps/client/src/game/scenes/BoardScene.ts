@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import mapJson from "@fiefmarch/game/maps/test-1v1.json" with { type: "json" };
 import { fitBoard } from "../camera/fitBoard";
+import { zoom } from "../camera/zoom";
 
 export class BoardScene extends Phaser.Scene {
   constructor() {
@@ -28,6 +29,15 @@ export class BoardScene extends Phaser.Scene {
     this.events.once("shutdown", () => {
       this.scale.off("resize", fitBoardToCamera);
     });
+
+    const zoomSpeed: number = 0.1;
+    this.input.on(
+      "wheel",
+      (pointer: Phaser.Input.Pointer, _gameObjects: any[], _deltaX: number, deltaY: number) => {
+        const zoomFactor: number = deltaY > 0 ? 1 - zoomSpeed : 1 + zoomSpeed;
+        zoom(this.cameras.main, pointer.x, pointer.y, zoomFactor);
+      },
+    );
 
     // get tile type/color from map data
     /**
