@@ -1,13 +1,23 @@
 import Phaser from "phaser";
 import mapJson from "@fiefmarch/game/maps/test-1v1.json" with { type: "json" };
+import { fitBoard } from "../camera/fitBoard";
 
 export class BoardScene extends Phaser.Scene {
   constructor() {
     super("BoardScene");
   }
   create() {
-    const tileSize: number = 32; //px
+    const tileSize: number = 64; //px
     const map = mapJson.terrain;
+
+    fitBoard(
+      this.cameras.main,
+      this.scale.width,
+      this.scale.height,
+      map.length * tileSize,
+      map[0].length * tileSize,
+      20,
+    );
 
     // get tile type/color from map data
     /**

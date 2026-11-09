@@ -4,10 +4,10 @@ import { BoardScene } from "./scenes/BoardScene";
 const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: "game-container",
+  width: 800,
+  height: 600,
   scale: {
     mode: Phaser.Scale.RESIZE,
-    width: 960,
-    height: 640,
   },
   scene: [BoardScene],
 };
