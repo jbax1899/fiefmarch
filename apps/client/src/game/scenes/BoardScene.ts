@@ -14,8 +14,8 @@ export class BoardScene extends Phaser.Scene {
       this.cameras.main,
       this.scale.width,
       this.scale.height,
-      map.length * tileSize,
       map[0].length * tileSize,
+      map.length * tileSize,
       20,
     );
 
