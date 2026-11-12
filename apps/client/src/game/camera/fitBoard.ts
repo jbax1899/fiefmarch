@@ -6,6 +6,9 @@ export function fitBoard(
   boardHeight: number,
   padding: number = 0,
 ) {
+  // TODO: sets zoom without the limits used by zoom.ts.
+  // On a sufficiently large viewport, fit zoom can exceed 2;
+  // the next wheel input then clamps it, causing a jump.
   const scaleX = (viewportWidth - padding * 2) / boardWidth;
   const scaleY = (viewportHeight - padding * 2) / boardHeight;
   const scale = Math.min(scaleX, scaleY);

@@ -12,8 +12,15 @@ export class BoardScene extends Phaser.Scene {
     const tileSize: number = 64; //px
     const map = mapJson.terrain;
     let scenePointer: Phaser.Input.Pointer = this.input.activePointer;
+    let panTween: Phaser.Tweens.Tween | undefined;
+    let isPanning: boolean = false;
+    const scrollSpeed = 0.15;
+    const releasePanningDelay = 300;
+    const decayRate = 0.95;
+    const glideDistanceFactor = (1 - decayRate ** (releasePanningDelay / 16)) / (1 - decayRate);
 
     const fitBoardToCamera = () => {
+      if (panTween) panTween.stop();
       fitBoard(
         this.cameras.main,
         this.scale.width,
@@ -24,29 +31,13 @@ export class BoardScene extends Phaser.Scene {
       );
     };
 
-    fitBoardToCamera();
+    fitBoardToCamera(); // fit on scene start
 
     this.scale.on("resize", fitBoardToCamera);
 
     this.events.once("shutdown", () => {
       this.scale.off("resize", fitBoardToCamera);
     });
-
-    const zoomSpeed: number = 0.1;
-    this.input.on(
-      "wheel",
-      (pointer: Phaser.Input.Pointer, _gameObjects: any[], _deltaX: number, deltaY: number) => {
-        const zoomFactor: number = deltaY > 0 ? 1 - zoomSpeed : 1 + zoomSpeed;
-        zoom(this.cameras.main, pointer.x, pointer.y, zoomFactor);
-      },
-    );
-
-    let isPanning: boolean = false;
-    const scrollSpeed = 0.15;
-    let panTween: Phaser.Tweens.Tween | undefined;
-    const releasePanningDelay = 300;
-    const decayRate = 0.95;
-    const glideDistanceFactor = (1 - decayRate ** (releasePanningDelay / 16)) / (1 - decayRate);
 
     this.input.on("pointerdown", () => {
       panTween?.stop();
@@ -92,6 +83,16 @@ export class BoardScene extends Phaser.Scene {
     this.input.keyboard?.on("keydown-SPACE", () => {
       fitBoardToCamera();
     });
+
+    const zoomSpeed: number = 0.1;
+    this.input.on(
+      "wheel",
+      (pointer: Phaser.Input.Pointer, _gameObjects: any[], _deltaX: number, deltaY: number) => {
+        if (panTween) panTween.stop();
+        const zoomFactor: number = deltaY > 0 ? 1 - zoomSpeed : 1 + zoomSpeed;
+        zoom(this.cameras.main, pointer.x, pointer.y, zoomFactor);
+      },
+    );
 
     // get tile type/color from map data
     /**
