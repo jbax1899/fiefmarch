@@ -62,10 +62,7 @@ export class BoardScene extends Phaser.Scene {
       if (!isPanning || pointer !== dragPointer) return;
       isPanning = false;
       dragPointer = undefined;
-      const releaseVelocity = new Phaser.Math.Vector2(
-        pointer.velocity.x,
-        pointer.velocity.y,
-      );
+      const releaseVelocity = new Phaser.Math.Vector2(pointer.velocity.x, pointer.velocity.y);
       const camera = this.cameras.main;
 
       panTween = this.tweens.add({
