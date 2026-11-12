@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import mapJson from "@fiefmarch/game/maps/test-1v1.json" with { type: "json" };
 import { fitBoard } from "../camera/fitBoard";
 import { zoom } from "../camera/zoom";
+import { mousePan } from "../camera/mousePan";
 
 export class BoardScene extends Phaser.Scene {
   constructor() {
@@ -10,6 +11,7 @@ export class BoardScene extends Phaser.Scene {
   create() {
     const tileSize: number = 64; //px
     const map = mapJson.terrain;
+    let scenePointer: Phaser.Input.Pointer = this.input.activePointer;
 
     const fitBoardToCamera = () => {
       fitBoard(
@@ -38,6 +40,58 @@ export class BoardScene extends Phaser.Scene {
         zoom(this.cameras.main, pointer.x, pointer.y, zoomFactor);
       },
     );
+
+    let isPanning: boolean = false;
+    const scrollSpeed = 0.15;
+    let panTween: Phaser.Tweens.Tween | undefined;
+    const releasePanningDelay = 300;
+    const decayRate = 0.95;
+    const glideDistanceFactor = (1 - decayRate ** (releasePanningDelay / 16)) / (1 - decayRate);
+
+    this.input.on("pointerdown", () => {
+      panTween?.stop();
+      isPanning = true;
+    });
+
+    this.input.on("pointermove", () => {
+      if (isPanning)
+        mousePan(
+          new Phaser.Math.Vector2(scenePointer.velocity.x, scenePointer.velocity.y),
+          this.cameras.main,
+          scrollSpeed,
+        );
+    });
+
+    this.input.on("pointerup", () => {
+      isPanning = false;
+      const releaseVelocity = new Phaser.Math.Vector2(
+        scenePointer.velocity.x,
+        scenePointer.velocity.y,
+      );
+      const camera = this.cameras.main;
+
+      panTween = this.tweens.add({
+        targets: camera,
+        scrollX:
+          camera.scrollX - (releaseVelocity.x / camera.zoom) * scrollSpeed * glideDistanceFactor,
+        scrollY:
+          camera.scrollY - (releaseVelocity.y / camera.zoom) * scrollSpeed * glideDistanceFactor,
+        duration: releasePanningDelay,
+        ease: "Cubic",
+      });
+    });
+
+    this.events.once("shutdown", () => panTween?.stop());
+
+    // if mouse leaves the viewport, stop panning
+    this.input.on("gameout", () => {
+      isPanning = false;
+    });
+
+    // on spacebar: center camera on board
+    this.input.keyboard?.on("keydown-SPACE", () => {
+      fitBoardToCamera();
+    });
 
     // get tile type/color from map data
     /**
