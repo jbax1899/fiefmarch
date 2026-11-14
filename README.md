@@ -1,25 +1,8 @@
 # Fiefmarch
 
-Fiefmarch is a turn-based medieval strategy game for the browser. Build keeps, gather resources, and raise armies to outlast rival Houses.
+Fiefmarch is a chess-like medieval strategy game for 2-4 players. Build keeps, gather resources, and raise armies to outlast rival Houses.
 
-## Design
-
-- [Overview](docs/game-design.md)
-- [Rules](docs/rules.md)
-- [Maps](docs/maps.md)
-- [Edicts](docs/edicts.md)
-
-## Development
-
-Requires Node.js 22.12+, pnpm 10.26.2, and Bun 1.4.4.
-
-```sh
-pnpm install
-pnpm dev:client
-pnpm dev:server
-```
-
-Run the client and server in separate terminals.
+[Read the rules](docs/rules.md)
 
 ## License
 
