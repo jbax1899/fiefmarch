@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@hono/bun": "1.0.1",
-    "hono": "4.13.16"
+    "hono": "4.13.18"
   },
   "devDependencies": {
     "bun-types": "1.4.4"
