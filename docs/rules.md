@@ -1,86 +1,66 @@
 # Rules
 
-Fiefmarch uses a square grid, with no random combat or resource production. Unit positions, resources, and Edict cooldowns are public.
+Fiefmarch is a game of _perfect information_ (players have complete knowledge of the game state), where play is _deterministic_ (the outcome of every action is predictable).
 
-See [maps](maps.md) for terrain and [Edicts](edicts.md) for special actions.
+Each player starts with a Keep, from which they can spend resources to create new units.
+
+A player is eliminated when an enemy captures their last Keep or when they resign (their units and buildings are then removed).
+
+The last surviving player or team wins.
 
 ## Match setup
 
 | Mode                     | Board | Target length    |
 | ------------------------ | ----- | ---------------- |
-| 1v1                      | 12×12 | 10–15 minutes    |
-| 2v2                      | 16×16 | About 20 minutes |
-| Four-player free-for-all | 16×16 | About 20 minutes |
+| 1v1                      | 12×12 | ~15 minutes    |
+| 2v2                      | 16×16 | ~20 minutes |
+| 4-player free-for-all | 16×16 | ~30 minutes |
 
 Each player starts with:
 
-- A keep near their assigned corner.
-- A worker on the keep.
-- One infantry unit on the diagonally inward tile.
-- 2 Food, 2 Wood, no Stone or Gold.
+- A Keep
+- A worker on their Keep
+- One infantry unit adjacent to their Keep
+- 2 Food and 2 Wood
 
-Starting positions are fixed. A player is eliminated when an enemy captures their last keep or when they resign. Their units, buildings, and turns are removed. The last surviving player or team wins. There is no round limit; all remaining players must agree to a draw.
+## Turn play
 
-## Rounds and actions
+At the start of a player's turn, they first collect resources - one Food for each of their Keeps, and for each resource camp one of that resource.
 
-Each player has **three actions per round**, taken one at a time in a fixed order chosen at match start. Team turns alternate where possible. Players can command only their own units, even in group moves.
+Each player can perform up to **three actions per turn**, or none (unspent actions are lost), in any order.
 
-An action lets a player move, attack, recruit, build, demolish or pilfer a camp, or issue an Edict. Passing forfeits any remaining actions; they do not carry over.
+An "action" includes:
 
-- Units may move more than once before another activity.
-- Attacking or pilfering ends a military unit's activity for the round. Each military unit may attack once.
-- Building ends a worker's activity for the round. Each worker may build once.
-- Units can act again at the start of the next round.
+- Move to an empty spot
+- Move to attack an enemy
+- Recruit a unit
+- Build with a worker unit
+- Pillage a camp
+- Issue an [Edict](edicts.md)
 
-Income is collected before anyone acts each round.
+## Moving Units
 
-## Moving
+Movement is orthogonal (left/right/up/down); no diagonal moves.
 
-Movement is orthogonal. Entering a tile costs 1 movement point, or 2 for forests. Mountains and water are impassable. Any unit may move one adjacent passable tile, even if it costs more than its movement allowance.
+Tiles have different movement costs based on terrain type:
 
-In team games, allied units count as friendly for movement and worker protection, and allied forts and keeps count as friendly for cover and fortification.
+| Terrain Type | Movement Cost |
+| ---------------| ---------- |
+| Plains | 1 |
+| Desert | 1 |
+| Forest | 2 |
+| Mountains | Impassible |
+| Water | Impassible |
 
-Friendly military units can pass through each other but cannot end on the same tile. Enemy military blocks movement. Workers do not block friendly soldiers or recruitment; one worker and one friendly military unit may share a tile.
+Units may always move at least one tile to a valid location, even if that movement cost exceeds their budget (e.g. Rams, with a movement budget of 1, always move 1 tile).
 
-Enemy military can enter an unprotected worker's tile and remove the worker without attacking. A protecting military unit must be defeated first. If a melee attacker enters the tile after defeating the defender, the worker is removed too. Otherwise, the worker stays until an enemy enters.
+Moving a military unit onto a tile occupied by another military unit swaps their positions.
 
-Two of your military units starting on orthogonally adjacent tiles may move together for one action. At each step, either or both may move one tile, staying orthogonally adjacent. Each follows normal movement rules and uses its own allowance. They may swap tiles if both moves are legal, but cannot attack during the group move.
+One worker and one friendly military unit may share a tile. Friendly military units can pass through each other but cannot ever share the same tile. 
 
-A worker and military unit sharing a tile may move together along the same path for one action. Each uses its own movement allowance; the soldier can continue after the worker stops. The worker cannot enter an enemy tile and stays on its last legal tile if the soldier attacks.
+Adjacent military units can "march," moving together with increased efficiency. First, declare which two adjacent military units are marching. Those units can move in the same direction (once, or some combination) for the cost of a single action, until either unit expends all of its movement budget (any remaining movement budget is lost). Units cannot attack in the same action that they march.
 
-### Roads
-
-A worker builds a road on its tile for one action and 1 Wood. Roads work on plains, forests, and deserts, but not mountains or water. Only one road may occupy a tile.
-
-A unit on a road can travel up to three connected road tiles per movement point. Entering from off-road costs 1 point. Roads ignore forest penalties and can cross camps and forts, but not keeps. Anyone can use them.
-
-## Units and combat
-
-| Unit          | Movement | Role                          |
-| ------------- | -------: | ----------------------------- |
-| Infantry      |        2 | Cheap general-purpose soldier |
-| Spearman      |        2 | Strong against cavalry        |
-| Archer        |        2 | Ranged attacks                |
-| Cavalry       |        3 | Fast; strong against archers  |
-| Battering ram |        2 | Attacks fortified positions   |
-| Worker        |        2 | Builds; cannot attack         |
-
-Military units have **3 HP**. Attacks deal 1 damage except:
-
-- Spearmen deal 2 damage to cavalry.
-- Cavalry deal 2 damage to archers.
-- Rams deal 2 damage to fortified units and keeps. They cannot attack unfortified units.
-- Archers attack enemy military one or two tiles away in the same row or column. Units and mountains block shots. Archers cannot attack workers or keeps.
-
-A melee attack moves into an enemy's tile and costs one action, including the movement. If the defender survives, the attacker stays on its last legal tile. If the defender dies, the attacker enters, except on a keep. Capturing a keep takes a separate movement action after its structural HP reaches 0. Adjacent units can attack without moving; archers always attack from their own tile.
-
-Attacking ends the unit's activity. There is no retaliation or random damage. Units at 0 HP are removed immediately. Only Rally heals military units.
-
-### Cover
-
-Military units on friendly forts or keeps above 0 structural HP are fortified, even after losing their cover. Entrench does not grant fortification.
-
-A soldier on such a building gains 1 cover, absorbing the first point of damage. Cover refreshes at the start of each round while the soldier stays there, and disappears if it leaves, the building is removed, or the keep reaches 0 HP. Returning that round does not restore cover. Cover cannot stack.
+A military unit can "escort" a Worker unit sharing its tile for the cost of a single action, until either unit expends all of its movement budget (any remaining movement budget is lost). An escort and march can happen at the same time for the cost of **two** actions.
 
 ## Resources and camps
 
@@ -108,6 +88,40 @@ Each camp claims one eligible, unclaimed resource site when built. Only one camp
 Workers build on their own tile. Camps, forts, and keeps cannot share tiles with other buildings. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits are impassable and cannot be built on.
 
 Players can demolish their own camps for one action unless occupied by enemy military. They recover one construction resource of their choice, and the site becomes unclaimed.
+
+### Roads
+
+A worker builds a road on its tile for one action and 1 Wood. Roads work on plains, forests, and deserts, but not mountains or water. Only one road may occupy a tile.
+
+A unit on a road can travel up to three connected road tiles per movement point. Entering from off-road costs 1 point. Roads ignore forest penalties and can cross camps and forts, but not keeps. Anyone can use them.
+
+## Combat
+
+| Unit          | Movement | Role                          |
+| ------------- | -------: | ----------------------------- |
+| Infantry      |        2 | Cheap general-purpose soldier |
+| Spearman      |        2 | Strong against cavalry        |
+| Archer        |        2 | Ranged attacks                |
+| Cavalry       |        3 | Fast; strong against archers  |
+| Battering ram |        2 | Attacks fortified positions   |
+| Worker        |        2 | Builds; cannot attack         |
+
+Military units have **3 HP**. Attacks deal 1 damage except:
+
+- Spearmen deal 2 damage to cavalry.
+- Cavalry deal 2 damage to archers.
+- Rams deal 2 damage to fortified units and keeps. They cannot attack unfortified units.
+- Archers attack enemy military one or two tiles away in the same row or column. Units and mountains block shots. Archers cannot attack workers or keeps.
+
+A melee attack moves into an enemy's tile and costs one action, including the movement. If the defender survives, the attacker stays on its last legal tile. If the defender dies, the attacker enters, except on a keep. Capturing a keep takes a separate movement action after its structural HP reaches 0. Adjacent units can attack without moving; archers always attack from their own tile.
+
+Attacking ends the unit's activity. There is no retaliation or random damage. Units at 0 HP are removed immediately. Only Rally heals military units.
+
+### Cover
+
+Military units on friendly forts or keeps above 0 structural HP are fortified, even after losing their cover. Entrench does not grant fortification.
+
+A soldier on such a building gains 1 cover, absorbing the first point of damage. Cover refreshes at the start of each round while the soldier stays there, and disappears if it leaves, the building is removed, or the keep reaches 0 HP. Returning that round does not restore cover. Cover cannot stack.
 
 ### Occupation and pilfering
 
