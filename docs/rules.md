@@ -25,7 +25,7 @@ Each player starts with:
 
 ## Turn play
 
-At the start of a player's turn, they first collect resources - one Food for each of their Keeps, and for each resource camp one of that resource.
+At the start of a player's turn, they first collect resources - one Food for each of their Keeps, one resource for each resource camp building.
 
 Each player can perform up to **three actions per turn**, or none (unspent actions are lost), in any order.
 
@@ -36,9 +36,9 @@ An "action" includes:
 - Recruit a unit
 - Build with a worker unit
 - Pillage a camp
-- Issue an [Edict](edicts.md)
+- Issue an Edict
 
-## Moving Units
+## Moving units
 
 Movement is orthogonal (left/right/up/down); no diagonal moves.
 
@@ -60,34 +60,25 @@ One worker and one friendly military unit may share a tile. Friendly military un
 
 Adjacent military units can "march," moving together with increased efficiency. First, declare which two adjacent military units are marching. Those units can move in the same direction (once, or some combination) for the cost of a single action, until either unit expends all of its movement budget (any remaining movement budget is lost). Units cannot attack in the same action that they march.
 
-A military unit can "escort" a Worker unit sharing its tile for the cost of a single action, until either unit expends all of its movement budget (any remaining movement budget is lost). An escort and march can happen at the same time for the cost of **two** actions.
+A military unit can "escort" a Worker unit sharing its tile, moving together until either unit expends all of its movement budget (any remaining movement budget is lost), for the cost of a single action. An escort and march can happen at the same time for the cost of **two** actions.
 
-## Resources and camps
+## Resource collection
 
-Players manage their own resources. Teammates cannot share or transfer them.
+Players collect resources to spend on new buildings, units, and Edicts.
 
-| Resource | Produced by                      | Uses                               |
-| -------- | -------------------------------- | ---------------------------------- |
-| Food     | Keeps, farm camps, fishing camps | Workers and troops                 |
-| Wood     | Lumber camps                     | Camps, roads, buildings, equipment |
-| Stone    | Quarry camps                     | Forts, keeps, rams                 |
-| Gold     | Mining camps                     | Edicts and keeps                   |
+Each standing Keep provides its owner 1 Food at the start of their turn.
 
-At the start of each round, a functioning keep produces 1 Food and each producing camp yields 1 resource. Camps need no worker after construction, and troops have no upkeep. Camps can claim only marked sites.
+Players can also build resource camp buildings adjacent to unclaimed resource tiles to collect 1 of that resource each at start-of-turn.
 
-Each camp claims one eligible, unclaimed resource site when built. Only one camp may claim a site, and the claim lasts until the camp is removed.
+| Camp    | Resource | Location                                                          | Construction cost |
+| ------- | -------- | ----------------------------------------------------------------- | ----------------- |
+| Lumber  | Wood | Forest tile | 1 Food |
+| Farm    | Food | Fertile plains tile | 1 Food, 1 Wood |
+| Fishing | Food | Water tile (with fish) | 1 Food, 1 Wood |
+| Quarry  | Stone | Mountain tile | 1 Food, 1 Wood |
+| Mine    | Gold | Gold deposit tile | 1 Food, 1 Wood |
 
-| Camp    | Location                                                          | Construction cost |
-| ------- | ----------------------------------------------------------------- | ----------------- |
-| Farm    | Marked fertile plains tile                                        | 1 Food, 1 Wood    |
-| Lumber  | Marked timber site in forest                                      | 1 Food            |
-| Fishing | Passable shore tile orthogonally beside a fish-bearing water tile | 1 Food, 1 Wood    |
-| Quarry  | Passable tile orthogonally beside a Stone deposit in mountains    | 1 Food, 1 Wood    |
-| Mine    | Passable tile orthogonally beside a Gold deposit in mountains     | 1 Food, 1 Wood    |
-
-Workers build on their own tile. Camps, forts, and keeps cannot share tiles with other buildings. Roads may overlap camps and forts, but not keeps. Fish, Stone, and Gold deposits are impassable and cannot be built on.
-
-Players can demolish their own camps for one action unless occupied by enemy military. They recover one construction resource of their choice, and the site becomes unclaimed.
+Players can spend an action to demolish one of their own camps, and take one of that camp's resource from the bank, as long as it is not occupied by an enemy military unit.
 
 ### Roads
 
