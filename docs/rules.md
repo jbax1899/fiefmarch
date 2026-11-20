@@ -19,8 +19,7 @@ The last surviving player or team wins.
 Each player starts with:
 
 - A Keep
-- A worker on their Keep
-- One infantry unit adjacent to their Keep
+- One Worker and one Infantry unit on their starting Keep
 - 2 Food and 2 Wood
 
 Game boards are rotationally symmetric, so every player begins with the same terrain and resources. Some Food, Wood, and Stone are available near each starting Keep, while Gold and additional resources encourage expansion toward the center.

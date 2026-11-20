@@ -132,24 +132,24 @@ test("a match uses the caller's map for its terrain", () => {
   assert.deepEqual(state.board.terrain, [["plains", "forest", "plains"]]);
 });
 
-test("a match places one owned Keep at each player's starting position", () => {
+test("a match places a Keep, Worker, and Infantry at each player's starting position", () => {
   const state = createMatch([{ id: "alice" }, { id: "bob" }], twoPlayerMap);
-  assert.deepEqual(state.pieces.pieces, [
-    {
-      id: "keep:alice",
-      kind: "Keep",
-      ownerId: "alice",
-      teamId: "alice",
-      position: { x: 2, y: 9 },
-    },
-    {
-      id: "keep:bob",
-      kind: "Keep",
-      ownerId: "bob",
-      teamId: "bob",
-      position: { x: 9, y: 2 },
-    },
-  ]);
+  const { pieces } = state.pieces;
+  assert.equal(pieces.length, 6);
+  assert.equal(new Set(pieces.map(({ id }) => id)).size, 6);
+  assert.equal(new Set(pieces.map(({ position }) => position)).size, 6);
+
+  for (const [ownerId, position] of [
+    ["alice", { x: 2, y: 9 }],
+    ["bob", { x: 9, y: 2 }],
+  ]) {
+    const ownedPieces = pieces.filter((piece) => piece.ownerId === ownerId);
+    assert.deepEqual(ownedPieces, [
+      { id: `keep:${ownerId}`, kind: "Keep", ownerId, teamId: ownerId, position },
+      { id: `worker:${ownerId}`, kind: "Worker", ownerId, teamId: ownerId, position },
+      { id: `infantry:${ownerId}`, kind: "infantry", ownerId, teamId: ownerId, position },
+    ]);
+  }
 });
 
 test("a match rejects a missing starting position", () => {

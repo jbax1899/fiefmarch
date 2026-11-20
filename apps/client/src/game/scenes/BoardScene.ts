@@ -1,11 +1,13 @@
 import type { MatchState } from "@fiefmarch/game";
 import Phaser from "phaser";
+import infantryUrl from "../../../resources/pieces/infantry.png";
 import keepUrl from "../../../resources/pieces/keep.png";
+import workerUrl from "../../../resources/pieces/worker.png";
 import { renderBoard } from "../board/renderBoard";
 import { fitBoard } from "../camera/fitBoard";
 import { MIN_ZOOM, zoom } from "../camera/zoom";
 import { mousePan } from "../camera/mousePan";
-import { KEEP_TEXTURE, renderPieces } from "../pieces/renderPieces";
+import { pieceTextures, renderPieces } from "../pieces/renderPieces";
 
 export class BoardScene extends Phaser.Scene {
   constructor(private readonly snapshot: MatchState) {
@@ -13,7 +15,9 @@ export class BoardScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image(KEEP_TEXTURE, keepUrl);
+    this.load.image(pieceTextures.keep, keepUrl);
+    this.load.image(pieceTextures.worker, workerUrl);
+    this.load.image(pieceTextures.infantry, infantryUrl);
   }
 
   create() {
