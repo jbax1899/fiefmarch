@@ -1,3 +1,8 @@
+import { setupGame } from "./setup";
+import type { BoardPiece } from "./piece";
+import type { TerrainKind } from "./terrain";
+import { decodeMap, type MapDefinition } from "./map";
+
 export type PlayerId = string;
 export type TeamId = string;
 
@@ -19,16 +24,34 @@ export type TurnState = {
   actionsRemaining: number;
 };
 
+export type Piece = {
+  id: string;
+  kind: BoardPiece;
+  ownerId: PlayerId;
+  teamId: TeamId;
+  position: { x: number; y: number };
+};
+
+export type Board = {
+  terrain: TerrainKind[][];
+};
+
+export type PieceState = {
+  pieces: Piece[];
+};
+
 export type MatchState = {
   status: "playing" | "finished";
   players: PlayerState[];
+  pieces: PieceState;
+  board: Board;
   turn: TurnState;
   winnerTeamId?: TeamId;
 };
 
 export const ACTIONS_PER_TURN = 3;
 
-export function createMatch(setup: readonly PlayerSetup[]): MatchState {
+export function createMatch(setup: readonly PlayerSetup[], map: MapDefinition): MatchState {
   if (setup.length !== 2 && setup.length !== 4) {
     throw new Error("A match needs two or four players");
   }
@@ -65,9 +88,13 @@ export function createMatch(setup: readonly PlayerSetup[]): MatchState {
     order = [firstTeam[0].id, secondTeam[0].id, firstTeam[1].id, secondTeam[1].id];
   }
 
+  const { board, pieces } = setupGame(decodeMap(map), players);
+
   return {
     status: "playing",
     players,
+    pieces,
+    board,
     turn: {
       round: 1,
       order,

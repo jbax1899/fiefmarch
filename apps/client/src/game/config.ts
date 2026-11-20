@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-import { BoardScene } from "./scenes/BoardScene";
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -9,7 +8,6 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
   scale: {
     mode: Phaser.Scale.RESIZE,
   },
-  scene: [BoardScene],
 };
 
 export default gameConfig;

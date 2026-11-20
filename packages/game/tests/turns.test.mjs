@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import twoPlayerMap from "../maps/test-1v1.json" with { type: "json" };
 import { createMatch, applyCommand } from "../src/index.ts";
 import { advanceTurn, useAction } from "../src/turns.ts";
 
-const start = () => createMatch([{ id: "a" }, { id: "b" }]);
+const fourPlayerMap = { terrain: ["1f2", "3.4"] };
+const start = () => createMatch([{ id: "a" }, { id: "b" }], twoPlayerMap);
 
 test("a match starts with three actions and a fixed player order", () => {
   const state = start();
@@ -65,7 +67,7 @@ test("a player may resign outside their turn and the last side wins", () => {
 });
 
 test("resigning on turn skips the eliminated player without changing order", () => {
-  const state = createMatch([{ id: "a" }, { id: "b" }, { id: "c" }, { id: "d" }]);
+  const state = createMatch([{ id: "a" }, { id: "b" }, { id: "c" }, { id: "d" }], fourPlayerMap);
   const resigned = applyCommand(state, "a", { type: "resign" });
   assert.equal(resigned.state.turn.order[resigned.state.turn.currentIndex], "b");
   const b = applyCommand(resigned.state, "b", { type: "end-turn" });
@@ -77,13 +79,13 @@ test("resigning on turn skips the eliminated player without changing order", () 
 });
 
 test("validates player setup and distinct sides", () => {
-  assert.throws(() => createMatch([{ id: "a" }]), /two or four/);
-  assert.throws(() => createMatch([{ id: "a" }, { id: "a" }]), /unique/);
+  assert.throws(() => createMatch([{ id: "a" }], twoPlayerMap), /two or four/);
+  assert.throws(() => createMatch([{ id: "a" }, { id: "a" }], twoPlayerMap), /unique/);
   const sameTeam = [
     { id: "a", teamId: "x" },
     { id: "b", teamId: "x" },
   ];
-  assert.throws(() => createMatch(sameTeam), /team/);
+  assert.throws(() => createMatch(sameTeam, twoPlayerMap), /team/);
 });
 
 test("four-player setup rejects unequal and mixed teams", () => {
@@ -99,17 +101,20 @@ test("four-player setup rejects unequal and mixed teams", () => {
     { id: "c", teamId: "blue" },
     { id: "d", teamId: "green" },
   ];
-  assert.throws(() => createMatch(threeVsOne), /team/i);
-  assert.throws(() => createMatch(twoVsOneVsOne), /team/i);
+  assert.throws(() => createMatch(threeVsOne, fourPlayerMap), /team/i);
+  assert.throws(() => createMatch(twoVsOneVsOne, fourPlayerMap), /team/i);
 });
 
 test("2v2 turn order alternates teams, even if input groups teammates", () => {
-  const state = createMatch([
-    { id: "a", teamId: "red" },
-    { id: "b", teamId: "red" },
-    { id: "c", teamId: "blue" },
-    { id: "d", teamId: "blue" },
-  ]);
+  const state = createMatch(
+    [
+      { id: "a", teamId: "red" },
+      { id: "b", teamId: "red" },
+      { id: "c", teamId: "blue" },
+      { id: "d", teamId: "blue" },
+    ],
+    fourPlayerMap,
+  );
   assert.deepEqual(state.turn.order, ["a", "c", "b", "d"]);
   assert.deepEqual(
     state.players.map(({ id }) => id),
@@ -118,8 +123,38 @@ test("2v2 turn order alternates teams, even if input groups teammates", () => {
 });
 
 test("four-player free-for-all keeps its supplied order", () => {
-  const state = createMatch([{ id: "c" }, { id: "a" }, { id: "d" }, { id: "b" }]);
+  const state = createMatch([{ id: "c" }, { id: "a" }, { id: "d" }, { id: "b" }], fourPlayerMap);
   assert.deepEqual(state.turn.order, ["c", "a", "d", "b"]);
+});
+
+test("a match uses the caller's map for its terrain", () => {
+  const state = createMatch([{ id: "a" }, { id: "b" }], { terrain: ["1f2"] });
+  assert.deepEqual(state.board.terrain, [["plains", "forest", "plains"]]);
+});
+
+test("a match places one owned Keep at each player's starting position", () => {
+  const state = createMatch([{ id: "alice" }, { id: "bob" }], twoPlayerMap);
+  assert.deepEqual(state.pieces.pieces, [
+    {
+      id: "keep:alice",
+      kind: "Keep",
+      ownerId: "alice",
+      teamId: "alice",
+      position: { x: 2, y: 9 },
+    },
+    {
+      id: "keep:bob",
+      kind: "Keep",
+      ownerId: "bob",
+      teamId: "bob",
+      position: { x: 9, y: 2 },
+    },
+  ]);
+});
+
+test("a match rejects a missing starting position", () => {
+  const players = [{ id: "alice" }, { id: "bob" }];
+  assert.throws(() => createMatch(players, { terrain: ["..2"] }), /missing starting position 1/);
 });
 
 test("turn advancement rejects a match without active players", () => {
