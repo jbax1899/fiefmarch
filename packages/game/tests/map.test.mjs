@@ -40,12 +40,16 @@ test("loads the existing board with coordinates, resources and starting Keeps", 
 });
 
 test("rejects malformed terrain and invalid starting Keeps", () => {
+  const terrainWithMissingRow = ["12", "34"];
+  delete terrainWithMissingRow[1];
+
   for (const input of [
     null,
     {},
     { terrain: [] },
     { terrain: [""] },
     { terrain: [1] },
+    { terrain: terrainWithMissingRow },
     { terrain: ["1.", "2"] },
   ]) {
     assert.throws(() => loadMap(input));

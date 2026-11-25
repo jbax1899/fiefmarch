@@ -16,7 +16,11 @@ export function loadMap(input: unknown): Board {
     throw new Error("Map must contain terrain rows");
   }
   const rows = input.terrain;
-  if (!Array.isArray(rows) || rows.length === 0 || rows.some((row) => typeof row !== "string")) {
+  if (
+    !Array.isArray(rows) ||
+    rows.length === 0 ||
+    Array.from(rows).some((row) => typeof row !== "string")
+  ) {
     throw new Error("Terrain must be a non-empty array of strings");
   }
   const width = rows[0].length;
