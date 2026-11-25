@@ -55,3 +55,14 @@ test("rejects malformed terrain and invalid starting Keeps", () => {
   }
   assert.throws(() => loadMap({ terrain: ["15"] }), /Unknown terrain/);
 });
+
+test("requires two or four starting Keeps", () => {
+  assert.throws(() => loadMap({ terrain: ["1"] }), /two or four/);
+  assert.throws(() => loadMap({ terrain: ["123"] }), /two or four/);
+
+  const board = loadMap({ terrain: ["1234"] });
+  assert.deepEqual(
+    board.tiles[0].map(({ startingKeep }) => startingKeep),
+    [1, 2, 3, 4],
+  );
+});

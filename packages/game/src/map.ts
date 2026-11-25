@@ -59,7 +59,10 @@ export function loadMap(input: unknown): Board {
       }
     }),
   );
-  if (keeps.size === 0 || [...keeps].some((keep) => keep > keeps.size)) {
+  if (keeps.size !== 2 && keeps.size !== 4) {
+    throw new Error("A map must have two or four starting Keeps");
+  }
+  if ([...keeps].some((keep) => keep > keeps.size)) {
     throw new Error("Starting Keeps must be numbered consecutively from 1");
   }
   return { width, height: rows.length, tiles };
